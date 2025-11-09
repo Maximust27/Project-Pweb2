@@ -77,7 +77,7 @@
 
             <!-- Footer Bottom -->
             <div class="pt-7 text-center">
-                <p class="text-[#666666] text-sm">
+                <p class="text-[#ffffff] text-sm">
                     © 2024 BarberShop. All rights reserved.
                 </p>
             </div>

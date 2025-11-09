@@ -1,0 +1,16 @@
+CRITICAL - 2025-11-09 05:39:45 --> ErrorException: include(layout_user/footer.php): Failed to open stream: No such file or directory
+[Method: GET, Route: booking]
+in APPPATH\Views\booking\booking.php on line 154.
+ 1 APPPATH\Views\booking\booking.php(154): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(layout_user/footer.php): Failed to open stream: No such file or directory', 'C:\\laragon\\www\\Project Pweb2\\app\\Views\\booking\\booking.php', 154)
+ 2 APPPATH\Views\booking\booking.php(154): include()
+ 3 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\Project Pweb2\\app\\Views\\booking\\booking.php')
+ 4 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():223}()
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('booking/booking', [], true)
+ 6 APPPATH\Controllers\BookingController.php(9): view('booking/booking')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\BookingController->Index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BookingController))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project Pweb2\\public\\index.php')
