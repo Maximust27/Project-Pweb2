@@ -93,7 +93,7 @@
           ];
           foreach($perms as $p):
         ?>
-        <button class="bg-white rounded-2xl overflow-hidden card-shadow flex flex-row items-center p-4 lg:p-5 option-btn border border-gray-200" data-group="perming">
+        <button class="bg-white rounded-2xl overflow-hidden card-shadow flex flex-row items-center p-4 lg:p-5 option-btn hover-gold" data-group="perming">
           <div class="w-28 h-28 lg:w-32 lg:h-32 rounded-xl overflow-hidden bg-gray-200 mr-4">
             <img src="https://via.placeholder.com/200x200?text=<?= str_replace(' ','+',$p['label']) ?>" class="w-full h-full object-cover">
           </div>
@@ -118,7 +118,7 @@
             ];
             foreach($treatments as $t):
           ?>
-          <button class="bg-white rounded-2xl overflow-hidden card-shadow flex flex-row items-center p-4 lg:p-5 option-btn border border-gray-200" data-group="treatment">
+          <button class="bg-white rounded-2xl overflow-hidden card-shadow flex flex-row items-center p-4 lg:p-5 option-btn hover-gold" data-group="treatment">
             <div class="w-28 h-28 lg:w-32 lg:h-32 rounded-xl overflow-hidden bg-gray-200 mr-4">
               <img src="https://via.placeholder.com/200x200?text=<?= str_replace(' ','+',$t['label']) ?>" class="w-full h-full object-cover">
             </div>
@@ -141,7 +141,7 @@
             $stylists = ['Tisna','Pinkky','Ahnaf'];
             foreach($stylists as $s):
           ?>
-          <button class="flex flex-col items-center bg-white text-gray-800 rounded-2xl p-3 card-shadow option-btn-2" data-group="stylist">
+          <button class="flex flex-col items-center bg-white text-gray-800 rounded-2xl p-3 card-shadow option-btn-2 hover-gold" data-group="stylist">
             <div class="w-24 h-32 lg:w-32 lg:h-40 rounded-2xl bg-gray-200 overflow-hidden mb-3">
               <img src="https://via.placeholder.com/150x200?text=<?= $s ?>" class="w-full h-full object-cover">
             </div>
