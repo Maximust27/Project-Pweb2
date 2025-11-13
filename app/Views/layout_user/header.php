@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -43,8 +43,8 @@
       <div id="menu" class="hidden md:flex items-center space-x-10">
         <!-- Center Menu -->
         <div class="flex flex-col md:flex-row md:space-x-8 text-white text-[16px] space-y-4 md:space-y-0 mt-4 md:mt-0">
-          <a href="#" class="text-[#b88a00] border-b-2 border-[#b88a00] pb-0.5">Home</a>
-          <a href="#" class="hover:text-[#b88a00] transition">About</a>
+          <a href="/" class="text-[#b88a00] border-b-2 border-[#b88a00] pb-0.5">Home</a>
+          <a href="#about" class="hover:text-[#b88a00] transition">About</a>
           <a href="booking" class="hover:text-[#b88a00] transition">Booking</a>
         </div>
 
