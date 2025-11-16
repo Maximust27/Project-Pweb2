@@ -7,4 +7,8 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('sidebar', 'LayoutAdmin::sidebar');
-$routes->get('booking', 'BookingController::index');
+
+// booking routes
+$routes->get('/booking', 'BookingController::index');
+$routes->post('/booking/save', 'BookingController::save');
+$routes->get('/booking/success', 'BookingController::success');
