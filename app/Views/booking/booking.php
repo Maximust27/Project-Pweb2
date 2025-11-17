@@ -16,8 +16,14 @@
   }
 </style>
 
+<form action="<?= base_url('booking/save') ?>" method="POST" id="bookingForm">
 <main class="font-montaga bg-white text-gray-800">
   <div class="max-w-md lg:max-w-4xl mx-auto px-5 py-8">
+
+    <!-- Hidden Input -->
+    <input type="hidden" name="service" id="selectedService">
+    <input type="hidden" name="stylist" id="selectedStylist">
+    <input type="hidden" name="time" id="selectedTime">
 
     <!-- Title -->
     <div class="text-center mb-8">
@@ -28,6 +34,7 @@
     <section class="mb-8 lg:mb-12">
       <h4 class="text-center text-[#C59A2D] text-lg lg:text-xl font-semibold mb-6 lg:mb-8">Haircut</h4>
       <div id="haircutOptions" class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+
         <?php
           $haircuts = [
             ['label'=>'Basic','price'=>'25.000'],
@@ -43,9 +50,14 @@
           </div>
           <div class="text-center">
             <div class="text-sm lg:text-base text-gray-800 mb-2"><?= $h['label'] ?></div>
-            <button class="inline-block bg-white text-gray-800 text-xs lg:text-sm font-semibold px-4 py-1.5 rounded-lg border border-gray-200 hover-gold option-btn" data-group="haircut">
+
+            <button type="button"
+              class="inline-block bg-white text-gray-800 text-xs lg:text-sm font-semibold px-4 py-1.5 rounded-lg border border-gray-200 hover-gold option-btn"
+              data-group="haircut"
+              data-label="<?= $h['label'] ?>">
               <?= $h['price'] ?>
             </button>
+
           </div>
         </div>
         <?php endforeach; ?>
@@ -57,6 +69,7 @@
       <div class="bg-[#1A1A1A] rounded-2xl py-8 lg:py-10 px-5 lg:px-8">
         <h4 class="text-center text-white text-lg lg:text-xl font-semibold mb-6 lg:mb-8">Coloring</h4>
         <div id="coloringOptions" class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+
           <?php
             $colorings = [
               ['label'=>'Basic','price'=>'100.000'],
@@ -72,9 +85,14 @@
             </div>
             <div class="text-center">
               <div class="text-sm lg:text-base text-white mb-2"><?= $c['label'] ?></div>
-              <button class="inline-block bg-white text-gray-800 text-xs lg:text-sm font-semibold px-4 py-1.5 rounded-lg border border-gray-200 hover-gold option-btn" data-group="coloring">
+
+              <button type="button"
+                class="inline-block bg-white text-gray-800 text-xs lg:text-sm font-semibold px-4 py-1.5 rounded-lg border border-gray-200 hover-gold option-btn"
+                data-group="coloring"
+                data-label="<?= $c['label'] ?>">
                 <?= $c['price'] ?>
               </button>
+
             </div>
           </div>
           <?php endforeach; ?>
@@ -86,6 +104,7 @@
     <section class="mb-8 lg:mb-12">
       <h4 class="text-center text-[#C59A2D] text-lg lg:text-xl font-semibold mb-6 lg:mb-8">Perming</h4>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
+
         <?php
           $perms = [
             ['label'=>'Hair Perm','price'=>'100.000'],
@@ -93,7 +112,11 @@
           ];
           foreach($perms as $p):
         ?>
-        <button class="bg-white rounded-2xl overflow-hidden card-shadow flex flex-row items-center p-4 lg:p-5 option-btn hover-gold" data-group="perming">
+        <button type="button"
+          class="bg-white rounded-2xl overflow-hidden card-shadow flex flex-row items-center p-4 lg:p-5 option-btn hover-gold"
+          data-group="perming"
+          data-label="<?= $p['label'] ?>">
+
           <div class="w-28 h-28 lg:w-32 lg:h-32 rounded-xl overflow-hidden bg-gray-200 mr-4">
             <img src="https://via.placeholder.com/200x200?text=<?= str_replace(' ','+',$p['label']) ?>" class="w-full h-full object-cover">
           </div>
@@ -111,6 +134,7 @@
       <div class="bg-[#1A1A1A] rounded-2xl py-8 lg:py-10 px-5 lg:px-8">
         <h4 class="text-center text-white text-lg lg:text-xl font-semibold mb-6 lg:mb-8">Treatment</h4>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
+
           <?php
             $treatments = [
               ['label'=>'Keratin Treatment','price'=>'100.000'],
@@ -118,7 +142,11 @@
             ];
             foreach($treatments as $t):
           ?>
-          <button class="bg-white rounded-2xl overflow-hidden card-shadow flex flex-row items-center p-4 lg:p-5 option-btn hover-gold" data-group="treatment">
+          <button type="button"
+            class="bg-white rounded-2xl overflow-hidden card-shadow flex flex-row items-center p-4 lg:p-5 option-btn hover-gold"
+            data-group="treatment"
+            data-label="<?= $t['label'] ?>">
+
             <div class="w-28 h-28 lg:w-32 lg:h-32 rounded-xl overflow-hidden bg-gray-200 mr-4">
               <img src="https://via.placeholder.com/200x200?text=<?= str_replace(' ','+',$t['label']) ?>" class="w-full h-full object-cover">
             </div>
@@ -141,7 +169,11 @@
             $stylists = ['Tisna','Pinkky','Ahnaf'];
             foreach($stylists as $s):
           ?>
-          <button class="flex flex-col items-center bg-white text-gray-800 rounded-2xl p-3 card-shadow option-btn-2 hover-gold" data-group="stylist">
+          <button type="button"
+            class="flex flex-col items-center bg-white text-gray-800 rounded-2xl p-3 card-shadow option-btn-2 hover-gold"
+            data-group="stylist"
+            data-label="<?= $s ?>">
+
             <div class="w-24 h-32 lg:w-32 lg:h-40 rounded-2xl bg-gray-200 overflow-hidden mb-3">
               <img src="https://via.placeholder.com/150x200?text=<?= $s ?>" class="w-full h-full object-cover">
             </div>
@@ -156,64 +188,75 @@
     <section class="mb-6 lg:mb-10">
       <div class="bg-[#1A1A1A] rounded-3xl p-6 lg:p-10">
         <div class="grid grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-4 mb-4 lg:mb-6">
-          <?php
-            $slots = ['09.00','10.00','11.00','12.00','13.00','14.00','15.00','16.00','17.00','18.00','19.00','20.00'];
-            foreach($slots as $slot):
-          ?>
-          <button class="bg-white text-gray-900 text-xs lg:text-sm px-3 py-2 lg:py-3 rounded-full w-full border border-gray-200 hover-gold option-btn-2" data-group="time">
-            <?= $slot ?>
-          </button>
-          <?php endforeach; ?>
-        </div>
 
+          <?php foreach($slots as $slot): ?>
+            <?php 
+              // Cek apakah sudah dibooking
+              $isBooked = $bookingModel->isBooked($slot); 
+            ?>
+
+            <button type="button"
+              class="
+                text-xs lg:text-sm px-3 py-2 lg:py-3 rounded-full w-full border 
+                option-btn-2
+                <?php if($isBooked): ?>
+                    bg-red-600 text-white border-red-700 cursor-not-allowed opacity-70
+                <?php else: ?>
+                    bg-white text-gray-900 border-gray-200 hover-gold
+                <?php endif; ?>
+              "
+              data-group="time"
+              data-label="<?= $slot ?>"
+              <?= $isBooked ? 'disabled' : '' ?>
+            >
+              <?= $slot ?> <?= $isBooked ? '(Booked)' : '' ?>
+            </button>
+                
+          <?php endforeach; ?>
+                
+        </div>
+                
         <div class="text-center mt-4 lg:mt-6">
-          <button class="px-8 lg:px-12 py-2 lg:py-3 rounded-full bg-black text-white text-sm lg:text-base hover:bg-gray-800 transition-colors">Booking</button>
+          <button type="submit"
+            class="px-8 lg:px-12 py-2 lg:py-3 rounded-full bg-black text-white text-sm lg:text-base hover:bg-gray-800 transition-colors">
+            Booking
+          </button>
         </div>
       </div>
     </section>
-
   </div>
 </main>
+</form>
 
 <script>
-  // hanya satu yang bisa aktif per grup
+  // Service button (multiple allowed)
+  document.querySelectorAll('.option-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('gold-bg'));
+      btn.classList.add('gold-bg');
+
+      let label = btn.dataset.label;
+      document.getElementById('selectedService').value = label;
+    });
+  });
+
+  // Single-select group (stylist + time)
   document.querySelectorAll('.option-btn-2').forEach(btn => {
     btn.addEventListener('click', () => {
       const group = btn.dataset.group;
       const siblings = document.querySelectorAll(`.option-btn-2[data-group="${group}"]`);
-      const isActive = btn.classList.contains('gold-bg');
 
-      // kalau tombol sudah aktif → kembalikan ke putih (unselect)
-      if (isActive) {
-        btn.classList.remove('gold-bg');
-        btn.classList.add('bg-white', 'text-gray-800');
-        return;
-      }
-
-      // kalau tombol belum aktif → nonaktifkan semua dulu
-      siblings.forEach(b => {
-        b.classList.remove('gold-bg');
-        b.classList.add('bg-white', 'text-gray-800');
-      });
-
-      // lalu aktifkan tombol yang diklik
+      siblings.forEach(b => b.classList.remove('gold-bg'));
       btn.classList.add('gold-bg');
-      btn.classList.remove('bg-white', 'text-gray-800');
-    });
-  });
 
-  // Toggle gold ketika diklik
-  document.querySelectorAll('.option-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      btn.classList.toggle('gold-bg');
-      if (btn.classList.contains('gold-bg')) {
-        btn.classList.remove('bg-white', 'text-gray-800');
-      } else {
-        btn.classList.add('bg-white', 'text-gray-800');
+      if (group === "stylist") {
+        document.getElementById('selectedStylist').value = btn.dataset.label;
+      }
+      if (group === "time") {
+        document.getElementById('selectedTime').value = btn.dataset.label;
       }
     });
   });
-
 </script>
 
 <?= $this->include('layout_user/footer') ?>

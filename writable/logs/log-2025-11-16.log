@@ -1,0 +1,60 @@
+CRITICAL - 2025-11-16 14:28:36 --> ErrorException: Undefined variable $bookingModel
+[Method: GET, Route: booking]
+in APPPATH\Views\booking\booking.php on line 195.
+ 1 APPPATH\Views\booking\booking.php(195): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $bookingModel', 'C:\\laragon\\www\\Project Pweb2\\app\\Views\\booking\\booking.php', 195)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\Project Pweb2\\app\\Views\\booking\\booking.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():223}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('booking/booking', [], true)
+ 5 APPPATH\Controllers\BookingController.php(25): view('booking/booking', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\BookingController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BookingController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project Pweb2\\public\\index.php')
+CRITICAL - 2025-11-16 14:28:46 --> ErrorException: Undefined variable $slots
+[Method: GET, Route: booking]
+in APPPATH\Views\booking\booking.php on line 192.
+ 1 APPPATH\Views\booking\booking.php(192): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $slots', 'C:\\laragon\\www\\Project Pweb2\\app\\Views\\booking\\booking.php', 192)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\Project Pweb2\\app\\Views\\booking\\booking.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():223}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('booking/booking', [], true)
+ 5 APPPATH\Controllers\BookingController.php(26): view('booking/booking', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\BookingController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BookingController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project Pweb2\\public\\index.php')
+CRITICAL - 2025-11-16 14:28:51 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\BookingModel::isBooked
+[Method: GET, Route: booking]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Views\booking\booking.php(195): CodeIgniter\Model->__call('isBooked', [...])
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\Project Pweb2\\app\\Views\\booking\\booking.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():223}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('booking/booking', [], true)
+ 5 APPPATH\Controllers\BookingController.php(18): view('booking/booking', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\BookingController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BookingController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project Pweb2\\public\\index.php')
+CRITICAL - 2025-11-16 14:28:52 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\BookingModel::isBooked
+[Method: GET, Route: booking]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Views\booking\booking.php(195): CodeIgniter\Model->__call('isBooked', [...])
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\Project Pweb2\\app\\Views\\booking\\booking.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():223}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('booking/booking', [], true)
+ 5 APPPATH\Controllers\BookingController.php(18): view('booking/booking', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\BookingController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BookingController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project Pweb2\\public\\index.php')
