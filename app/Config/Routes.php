@@ -16,4 +16,4 @@ $routes->get('booking', 'BookingController::index');
 // booking routes
 $routes->get('/booking', 'BookingController::index');
 $routes->post('/booking/save', 'BookingController::save');
-$routes->get('/booking/success', 'BookingController::success');
+$routes->get('/booking/slots', 'BookingController::getSlots');
