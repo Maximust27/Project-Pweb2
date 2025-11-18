@@ -1,0 +1,94 @@
+ERROR - 2025-11-17 15:28:49 --> mysqli_sql_exception: Table 'barbershop.booking' doesn't exist in C:\laragon\www\Project-Pweb2\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\Project-Pweb2\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\laragon\www\Project-Pweb2\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\laragon\www\Project-Pweb2\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\laragon\www\Project-Pweb2\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\laragon\www\Project-Pweb2\system\Model.php(675): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+#5 C:\laragon\www\Project-Pweb2\app\Models\BookingModel.php(13): CodeIgniter\Model->countAllResults()
+#6 C:\laragon\www\Project-Pweb2\app\Views\booking\booking.php(195): App\Models\BookingModel->isBooked('09.00')
+#7 C:\laragon\www\Project-Pweb2\system\View\View.php(226): include('C:\\laragon\\www\\...')
+#8 C:\laragon\www\Project-Pweb2\system\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#9 C:\laragon\www\Project-Pweb2\system\Common.php(1167): CodeIgniter\View\View->render('booking/booking', Array, true)
+#10 C:\laragon\www\Project-Pweb2\app\Controllers\BookingController.php(18): view('booking/booking', Array)
+#11 C:\laragon\www\Project-Pweb2\system\CodeIgniter.php(933): App\Controllers\BookingController->index()
+#12 C:\laragon\www\Project-Pweb2\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BookingController))
+#13 C:\laragon\www\Project-Pweb2\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#14 C:\laragon\www\Project-Pweb2\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#15 C:\laragon\www\Project-Pweb2\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#16 C:\laragon\www\Project-Pweb2\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#17 C:\laragon\www\Project-Pweb2\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#18 {main}
+CRITICAL - 2025-11-17 15:28:49 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'barbershop.booking' doesn't exist
+[Method: GET, Route: booking]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `booking`
+WHERE `time` = :time:', [...], false)
+ 2 SYSTEMPATH\Model.php(675): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+ 3 APPPATH\Models\BookingModel.php(13): CodeIgniter\Model->countAllResults()
+ 4 APPPATH\Views\booking\booking.php(195): App\Models\BookingModel->isBooked('09.00')
+ 5 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\Project-Pweb2\\app\\Views\\booking\\booking.php')
+ 6 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 7 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('booking/booking', [], true)
+ 8 APPPATH\Controllers\BookingController.php(18): view('booking/booking', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\BookingController->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BookingController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+CRITICAL - 2025-11-17 15:28:49 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'barbershop.booking' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `booking`
+WHERE `time` = \'09.00\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `booking`
+WHERE `time` = \'09.00\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `booking`
+WHERE `time` = :time:', [...], false)
+ 4 SYSTEMPATH\Model.php(675): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+ 5 APPPATH\Models\BookingModel.php(13): CodeIgniter\Model->countAllResults()
+ 6 APPPATH\Views\booking\booking.php(195): App\Models\BookingModel->isBooked('09.00')
+ 7 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\Project-Pweb2\\app\\Views\\booking\\booking.php')
+ 8 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 9 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('booking/booking', [], true)
+10 APPPATH\Controllers\BookingController.php(18): view('booking/booking', [...])
+11 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\BookingController->index()
+12 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BookingController))
+13 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+CRITICAL - 2025-11-17 15:28:49 --> [Caused by] mysqli_sql_exception: Table 'barbershop.booking' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM `booking`
+WHERE `time` = \'09.00\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `booking`
+WHERE `time` = \'09.00\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `booking`
+WHERE `time` = \'09.00\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `booking`
+WHERE `time` = :time:', [...], false)
+ 5 SYSTEMPATH\Model.php(675): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+ 6 APPPATH\Models\BookingModel.php(13): CodeIgniter\Model->countAllResults()
+ 7 APPPATH\Views\booking\booking.php(195): App\Models\BookingModel->isBooked('09.00')
+ 8 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\Project-Pweb2\\app\\Views\\booking\\booking.php')
+ 9 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+10 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('booking/booking', [], true)
+11 APPPATH\Controllers\BookingController.php(18): view('booking/booking', [...])
+12 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\BookingController->index()
+13 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BookingController))
+14 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+18 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
