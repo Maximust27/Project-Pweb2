@@ -164,6 +164,7 @@
     <section class="mb-8 lg:mb-12">
       <div class="bg-[#F3F4F6] rounded-2xl lg:py-10">
         <h4 class="text-center text-[#C59A2D] text-lg lg:text-xl font-semibold mb-6 lg:mb-8">Stylist</h4>
+
         <div class="flex justify-center gap-6 lg:gap-10">
           <?php
             $stylists = ['Tisna','Pinkky','Ahnaf'];
@@ -173,7 +174,7 @@
             class="flex flex-col items-center bg-white text-gray-800 rounded-2xl p-3 card-shadow option-btn-2 hover-gold"
             data-group="stylist"
             data-label="<?= $s ?>">
-
+            
             <div class="w-24 h-32 lg:w-32 lg:h-40 rounded-2xl bg-gray-200 overflow-hidden mb-3">
               <img src="https://via.placeholder.com/150x200?text=<?= $s ?>" class="w-full h-full object-cover">
             </div>
@@ -181,8 +182,10 @@
           </button>
           <?php endforeach; ?>
         </div>
+            
       </div>
     </section>
+
 
     <!-- Time slots -->
     <section class="mb-6 lg:mb-10">
@@ -190,32 +193,26 @@
         <div class="grid grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-4 mb-4 lg:mb-6">
 
           <?php foreach($slots as $slot): ?>
-            <?php 
-              // Cek apakah sudah dibooking
-              $isBooked = $bookingModel->isBooked($slot); 
-            ?>
+              <?php 
+                  $isBooked = $stylist ? $bookingModel->isBooked($slot, $stylist) : false;
+              ?>
 
-            <button type="button"
-              class="
-                text-xs lg:text-sm px-3 py-2 lg:py-3 rounded-full w-full border 
-                option-btn-2
-                <?php if($isBooked): ?>
-                    bg-red-600 text-white border-red-700 cursor-not-allowed opacity-70
-                <?php else: ?>
-                    bg-white text-gray-900 border-gray-200 hover-gold
-                <?php endif; ?>
-              "
-              data-group="time"
-              data-label="<?= $slot ?>"
-              <?= $isBooked ? 'disabled' : '' ?>
-            >
-              <?= $slot ?> <?= $isBooked ? '(Booked)' : '' ?>
-            </button>
-                
+              <button type="button"
+                  class="
+                      text-xs lg:text-sm px-3 py-2 lg:py-3 rounded-full w-full border 
+                      option-btn-2
+                      <?= $isBooked ? 'bg-red-600 text-white border-red-700 cursor-not-allowed opacity-70' : 'bg-white text-gray-900 border-gray-200 hover-gold' ?>
+                  "
+                  data-group="time"
+                  data-label="<?= $slot ?>"
+                  <?= $isBooked ? 'disabled' : '' ?>
+              >
+                  <?= $slot ?> <?= $isBooked ? '(Booked)' : '' ?>
+              </button>
           <?php endforeach; ?>
-                
+          
         </div>
-                
+          
         <div class="text-center mt-4 lg:mt-6">
           <button type="submit"
             class="px-8 lg:px-12 py-2 lg:py-3 rounded-full bg-black text-white text-sm lg:text-base hover:bg-gray-800 transition-colors">
@@ -229,34 +226,67 @@
 </form>
 
 <script>
-  // Service button (multiple allowed)
-  document.querySelectorAll('.option-btn').forEach(btn => {
+// Single select (stylist & time)
+document.querySelectorAll('.option-btn-2').forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('gold-bg'));
-      btn.classList.add('gold-bg');
+        const group = btn.dataset.group;
+        const siblings = document.querySelectorAll(`.option-btn-2[data-group="${group}"]`);
 
-      let label = btn.dataset.label;
-      document.getElementById('selectedService').value = label;
+        siblings.forEach(b => b.classList.remove('gold-bg'));
+        btn.classList.add('gold-bg');
+
+        if (group === "stylist") {
+            document.getElementById('selectedStylist').value = btn.dataset.label;
+            window.location.href = "/booking?stylist=" + btn.dataset.label;
+        }
+
+        if (group === "time") {
+            document.getElementById('selectedTime').value = btn.dataset.label;
+        }
     });
-  });
+});
 
-  // Single-select group (stylist + time)
-  document.querySelectorAll('.option-btn-2').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const group = btn.dataset.group;
-      const siblings = document.querySelectorAll(`.option-btn-2[data-group="${group}"]`);
 
-      siblings.forEach(b => b.classList.remove('gold-bg'));
-      btn.classList.add('gold-bg');
-
-      if (group === "stylist") {
-        document.getElementById('selectedStylist').value = btn.dataset.label;
-      }
-      if (group === "time") {
-        document.getElementById('selectedTime').value = btn.dataset.label;
-      }
+// AUTO SELECT stylist ketika reload
+let selectedStylist = "<?= $stylist ?>";
+if (selectedStylist) {
+    document.querySelectorAll('.option-btn-2[data-group="stylist"]').forEach(btn => {
+        if (btn.dataset.label === selectedStylist) {
+            btn.classList.add('gold-bg');
+            document.getElementById('selectedStylist').value = selectedStylist;
+        }
     });
-  });
+}
+
+
+// REALTIME SLOT CHECK
+function loadSlots() {
+    let stylist = "<?= $stylist ?>";
+    if (!stylist) return;
+
+    fetch(`/booking/slots?stylist=${stylist}`)
+        .then(res => res.json())
+        .then(data => {
+            document.querySelectorAll('.option-btn-2[data-group="time"]').forEach(btn => {
+                let slot = data.find(s => s.time === btn.dataset.label);
+
+                if (slot.booked) {
+                    btn.classList.add("bg-red-600","text-white","cursor-not-allowed","opacity-70");
+                    btn.classList.remove("bg-white","text-gray-900","hover-gold");
+                    btn.disabled = true;
+                    btn.innerText = btn.dataset.label + " (Booked)";
+                } else {
+                    btn.classList.remove("bg-red-600","text-white","cursor-not-allowed","opacity-70");
+                    btn.classList.add("bg-white","text-gray-900","hover-gold");
+                    btn.disabled = false;
+                    btn.innerText = btn.dataset.label;
+                }
+            });
+        });
+}
+
+setInterval(loadSlots, 5000);
+loadSlots();
 </script>
 
 <?= $this->include('layout_user/footer') ?>

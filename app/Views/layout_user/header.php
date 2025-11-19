@@ -43,7 +43,7 @@
       <div id="menu" class="hidden md:flex items-center space-x-10">
         <!-- Center Menu -->
         <div class="flex flex-col md:flex-row md:space-x-8 text-white text-[16px] space-y-4 md:space-y-0 mt-4 md:mt-0">
-          <a href="<?= base_url('/') ?>" class="text-[#b88a00] border-b-2 border-[#b88a00] pb-0.5">Home</a>
+          <a href="<?= base_url('/') ?>" class="hover:text-[#b88a00] transition">Home</a>
           <a href="<?= base_url('') ?>#about" class="hover:text-[#b88a00] transition">About</a>
           <a href="<?= base_url('booking') ?>" class="hover:text-[#b88a00] transition">Booking</a>
         </div>
