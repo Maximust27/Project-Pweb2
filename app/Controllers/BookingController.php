@@ -18,7 +18,7 @@ class BookingController extends BaseController
             'bookingModel' => $bookingModel
         ];
 
-        return view('booking/booking', $data);
+        return view('layout_user/booking', $data);
     }
 
 
@@ -26,10 +26,10 @@ class BookingController extends BaseController
     {
         $bookingModel = new BookingModel();
         $slots = ['09.00','10.00','11.00','12.00','13.00','14.00','15.00','16.00','17.00','18.00','19.00','20.00'];
-    
+
         // Ambil stylist dari parameter GET
         $stylist = $this->request->getGet('stylist');
-    
+
         $result = [];
         foreach ($slots as $slot) {
             $result[] = [
@@ -38,7 +38,7 @@ class BookingController extends BaseController
                 'booked' => $stylist ? $bookingModel->isBooked($slot, $stylist) : false
             ];
         }
-    
+
         return $this->response->setJSON($result);
     }
 
