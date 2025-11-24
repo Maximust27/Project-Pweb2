@@ -30,14 +30,4 @@ class LayoutAdmin extends BaseController
     {
         return view('admin/notif');
     }
-
-    public function service()
-    {
-        return view('admin/service');
-    }
-
-    public function dashboard_admin()
-    {
-        return view('admin/dashboard-admin');
-    }
 }

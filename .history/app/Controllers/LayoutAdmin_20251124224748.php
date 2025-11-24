@@ -35,9 +35,4 @@ class LayoutAdmin extends BaseController
     {
         return view('admin/service');
     }
-
-    public function dashboard_admin()
-    {
-        return view('admin/dashboard-admin');
-    }
 }

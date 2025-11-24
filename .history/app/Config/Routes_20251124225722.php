@@ -47,7 +47,7 @@ $routes->get('/admin/edit_service', 'ServiceController::edit');
 $routes->get('booking', 'BookingController::index');
 $routes->get('notif', 'LayoutAdmin::notif');
 $routes->get('service', 'LayoutAdmin::service');
-$routes->get('dashboard-admin', 'LayoutAdmin::dashboard_admin');
+$routes->get('dashboard-', 'LayoutAdmin::service');
 
 $routes->get('booking', 'BookingController::index');
 $routes->post('booking/save', 'BookingController::save');
