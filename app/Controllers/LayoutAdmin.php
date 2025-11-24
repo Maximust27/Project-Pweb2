@@ -26,6 +26,34 @@ class LayoutAdmin extends BaseController
         ]);
     }
 
+    public function updateProfile() //update profile admin
+    {
+        $adminModel = new AdminModel();
+        $id = 1; //khusus admin id 1
+
+        $data = [
+            'name'        => $this->request->getPost('name'),
+            'full_name'   => $this->request->getPost('full_name'),
+            'description' => $this->request->getPost('description'),
+            'skill_title' => $this->request->getPost('skill_title'),
+        ];
+
+        //Upload Foto
+        $file = $this->request->getFile('photo');
+
+        if ($file && $file->isValid() && !$file->hasMoved()) {
+            $newName = $file->getRandomName();
+            $file->move('uploads', $newName);
+
+            $data['photo'] = $newName;
+        }
+
+        //update database
+        $adminModel->update($id, $data);
+
+        return redirect()->to('/admin/profile')->with('success', 'Profil berhasil diperbarui!');
+    }
+
     public function notif()
     {
         return view('admin/notif');
