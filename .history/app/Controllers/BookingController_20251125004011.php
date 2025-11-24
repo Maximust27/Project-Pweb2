@@ -19,7 +19,7 @@ class BookingController extends BaseController
             'bookingModel' => $bookingModel
         ];
 
-        return view('user/booking', $data);
+        return view('lay/booking', $data);
     }
 
 
