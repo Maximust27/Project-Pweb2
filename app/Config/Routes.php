@@ -11,6 +11,10 @@ $routes->get('/register', 'Auth::register');
 $routes->get('/profile', 'User::profile');
 
 $routes->get('sidebar', 'LayoutAdmin::sidebar');
+$routes->get('/admin/profile_adm', 'LayoutAdmin::profile');
+$routes->get('/admin/edit_service', 'ServiceController::edit');
+
+
 $routes->get('booking', 'BookingController::index');
 
 // booking routes
