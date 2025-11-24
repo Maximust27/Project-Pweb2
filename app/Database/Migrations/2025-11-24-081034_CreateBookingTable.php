@@ -4,11 +4,11 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateBookingTable extends Migration
+class CreateBookingTables extends Migration
 {
     public function up()
     {
-        // Mendefinisikan kolom sesuai screenshot phpMyAdmin kamu
+        // 1. Tabel bookings (Untuk Data Header/Transaksi)
         $this->forge->addField([
             'id' => [
                 'type'           => 'INT',
@@ -16,39 +16,66 @@ class CreateBookingTable extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'service' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '100',
+            'user_id' => [ // Relasi ke tabel users
+                'type'       => 'INT',
+                'constraint' => 11,
+                'unsigned'   => true,
             ],
             'stylist' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
             ],
             'time' => [
-                'type'       => 'VARCHAR', // Kita pakai VARCHAR agar format "09.00" tetap aman
+                'type'       => 'VARCHAR',
                 'constraint' => '10',
             ],
-            'created_at' => [
-                'type'    => 'DATETIME',
-                'null'    => true,
+            'total_price' => [ // Untuk menyimpan total belanja
+                'type'       => 'DECIMAL',
+                'constraint' => '10,0', // Bisa menampung angka jutaan
+                'default'    => 0
             ],
-            // Opsional: updated_at jika nanti dibutuhkan
-            'updated_at' => [
-                'type'    => 'DATETIME',
-                'null'    => true,
+            'created_at' => ['type' => 'DATETIME', 'null' => true],
+            'updated_at' => ['type' => 'DATETIME', 'null' => true],
+        ]);
+        $this->forge->addKey('id', true);
+        $this->forge->createTable('bookings');
+
+        // 2. Tabel booking_details (Untuk Rincian Service yg dipilih)
+        $this->forge->addField([
+            'id' => [
+                'type'           => 'INT',
+                'constraint'     => 11,
+                'unsigned'       => true,
+                'auto_increment' => true,
+            ],
+            'booking_id' => [ // Kunci tamu ke tabel bookings
+                'type'       => 'INT',
+                'constraint' => 11,
+                'unsigned'   => true,
+            ],
+            'service_name' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '100',
+            ],
+            'service_price' => [
+                'type'       => 'DECIMAL',
+                'constraint' => '10,0',
+            ],
+            'service_image' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+                'null'       => true,
             ],
         ]);
-
-        // Menentukan Primary Key (id)
         $this->forge->addKey('id', true);
-        
-        // Membuat tabel 'booking'
-        $this->forge->createTable('booking');
+        // Optional: Menambahkan Foreign Key (agar aman)
+        // $this->forge->addForeignKey('booking_id', 'bookings', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->createTable('booking_details');
     }
 
     public function down()
     {
-        // Menghapus tabel jika perintah migrate:rollback dijalankan
-        $this->forge->dropTable('booking');
+        $this->forge->dropTable('booking_details');
+        $this->forge->dropTable('bookings');
     }
 }
