@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 use App\Models\BookingModel;
+use App\Models\BookingDetailModel;
 
 class BookingController extends BaseController
 {
@@ -18,7 +19,7 @@ class BookingController extends BaseController
             'bookingModel' => $bookingModel
         ];
 
-        return view('layout_user/booking', $data);
+        return view('user/booking', $data);
     }
 
 
@@ -45,14 +46,55 @@ class BookingController extends BaseController
 
     public function save()
     {
-        $booking = new BookingModel();
+        $bookingModel = new BookingModel();
+        $detailModel  = new BookingDetailModel();
+        
+        // 1. Ambil data dari form
+        // Anggap user_id diambil dari session login (Wajib ada tabel user dulu)
+        $userId = session()->get('id') ?? 1; // Contoh id=1 jika belum ada login
+        
+        $stylist = $this->request->getPost('stylist');
+        $time    = $this->request->getPost('time');
+        
+        // Ini string JSON dari input hidden (berisi array service yg dipilih)
+        $servicesJson = $this->request->getPost('selected_services_json'); 
+        $services = json_decode($servicesJson, true); // Ubah jadi array PHP
 
-        $booking->save([
-            'service' => $this->request->getPost('service'),
-            'stylist' => $this->request->getPost('stylist'),
-            'time'    => $this->request->getPost('time'),
-        ]);
+        if (empty($services) || !$stylist || !$time) {
+            return redirect()->back()->with('error', 'Data tidak lengkap');
+        }
 
-        return redirect()->to('/booking');
+        // 2. Hitung Total Harga di Server (Lebih aman daripada percaya input client)
+        $totalPrice = 0;
+        foreach ($services as $svc) {
+            // Bersihkan format "Rp 25.000" jadi angka 25000
+            $cleanPrice = str_replace(['.', ','], '', $svc['price']); 
+            $totalPrice += (int) $cleanPrice;
+        }
+
+        // 3. Simpan ke Tabel bookings (PARENT)
+        $bookingData = [
+            'user_id'     => $userId,
+            'stylist'     => $stylist,
+            'time'        => $time,
+            'total_price' => $totalPrice
+        ];
+        
+        // Insert dan dapatkan ID baru
+        $bookingModel->insert($bookingData);
+        $bookingId = $bookingModel->getInsertID();
+
+        // 4. Simpan ke Tabel booking_details (CHILD)
+        foreach ($services as $svc) {
+            $cleanPrice = str_replace(['.', ','], '', $svc['price']);
+            $detailModel->insert([
+                'booking_id'    => $bookingId,
+                'service_name'  => $svc['name'],
+                'service_price' => $cleanPrice,
+                'service_image' => $svc['image']
+            ]);
+        }
+
+        return redirect()->to('/booking')->with('success', 'Booking berhasil!');
     }
 }
