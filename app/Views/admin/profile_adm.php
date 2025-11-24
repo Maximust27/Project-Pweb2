@@ -39,7 +39,7 @@
                 <ul class="mt-3 space-y-2">
                     <?php foreach ($skills as $s): ?>
                         <li class="flex items-center gap-2">
-                            <span class="w-3 h-3 bg-yellow-500 rounded-full"></span> <?= $s ?>
+                            <span class="w-3 h-3 bg-yellow-500 rounded-full"></span> <?= $s['skill_name']?>
                         </li>
                     <?php endforeach; ?>
                 </ul>

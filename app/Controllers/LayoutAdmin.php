@@ -2,6 +2,9 @@
 
 namespace App\Controllers;
 
+use App\Models\AdminModel;   
+use App\Models\SkillModel;   
+
 class LayoutAdmin extends BaseController
 {
     public function sidebar()
@@ -11,25 +14,20 @@ class LayoutAdmin extends BaseController
 
     public function profile()
     {
-     $admin = [
-        'photo' => 'default-user.png',
-        'name' => 'Admin Default',
-        'role' => 'Administrator',
-        'full_name' => 'Admin Default',
-        'description' => 'Belum ada deskripsi. Silakan update profil.',
-        'skill_title' => 'Keahlian Belum Diatur',
-    ];
+        $adminModel = new AdminModel();
+        $skillModel = new SkillModel();
 
-    // dummy skill list
-    $skills = [
-        'Skill 1',
-        'Skill 2',
-        'Skill 3',
-    ];
+        $admin = $adminModel->find(1);
+        $skills = $skillModel->where('admin_id', 1)->findAll();
 
-    return view('admin/profile_adm', [
-        'admin' => $admin,
-        'skills' => $skills,
-    ]);
+        return view('admin/profile_adm', [
+            'admin' => $admin,
+            'skills' => $skills
+        ]);
+    }
+
+    public function service()
+    {
+        return view('layout_admin/service');
     }
 }
