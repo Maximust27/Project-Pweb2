@@ -40,6 +40,11 @@ $routes->group('admin', ['filter' => 'role:admin'], function ($routes) {
 // BOOKING
 // =====================
 $routes->get('sidebar', 'LayoutAdmin::sidebar');
+$routes->get('/admin/profile_adm', 'LayoutAdmin::profile');
+$routes->get('/admin/edit_service', 'ServiceController::edit');
+
+
+$routes->get('booking', 'BookingController::index');
 $routes->get('service', 'LayoutAdmin::service');
 
 $routes->get('booking', 'BookingController::index');
