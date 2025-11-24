@@ -1,0 +1,35 @@
+ERROR - 2025-11-24 08:11:45 --> mysqli_sql_exception: Table 'booking' already exists in C:\laragon\www\Project Pweb2\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\Project Pweb2\system\Database\MySQLi\Connection.php(327): mysqli->query('CREATE TABLE `b...', 0)
+#1 C:\laragon\www\Project Pweb2\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `b...')
+#2 C:\laragon\www\Project Pweb2\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `b...')
+#3 C:\laragon\www\Project Pweb2\system\Database\Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `b...')
+#4 C:\laragon\www\Project Pweb2\app\Database\Migrations\2025-11-24-081034_CreateBookingTable.php(46): CodeIgniter\Database\Forge->createTable('booking')
+#5 C:\laragon\www\Project Pweb2\system\Database\MigrationRunner.php(876): App\Database\Migrations\CreateBookingTable->up()
+#6 C:\laragon\www\Project Pweb2\system\Database\MigrationRunner.php(182): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\laragon\www\Project Pweb2\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\laragon\www\Project Pweb2\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\laragon\www\Project Pweb2\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\laragon\www\Project Pweb2\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#11 C:\laragon\www\Project Pweb2\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 C:\laragon\www\Project Pweb2\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+ERROR - 2025-11-24 08:12:50 --> mysqli_sql_exception: Table 'booking' already exists in C:\laragon\www\Project Pweb2\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\Project Pweb2\system\Database\MySQLi\Connection.php(327): mysqli->query('CREATE TABLE `b...', 0)
+#1 C:\laragon\www\Project Pweb2\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `b...')
+#2 C:\laragon\www\Project Pweb2\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `b...')
+#3 C:\laragon\www\Project Pweb2\system\Database\Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `b...')
+#4 C:\laragon\www\Project Pweb2\app\Database\Migrations\2025-11-24-081034_CreateBookingTable.php(46): CodeIgniter\Database\Forge->createTable('booking')
+#5 C:\laragon\www\Project Pweb2\system\Database\MigrationRunner.php(876): App\Database\Migrations\CreateBookingTable->up()
+#6 C:\laragon\www\Project Pweb2\system\Database\MigrationRunner.php(182): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\laragon\www\Project Pweb2\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\laragon\www\Project Pweb2\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\laragon\www\Project Pweb2\system\CLI\BaseCommand.php(119): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\laragon\www\Project Pweb2\system\Commands\Database\MigrateRefresh.php(87): CodeIgniter\CLI\BaseCommand->call('migrate', Array)
+#11 C:\laragon\www\Project Pweb2\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 C:\laragon\www\Project Pweb2\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 C:\laragon\www\Project Pweb2\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#14 C:\laragon\www\Project Pweb2\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#15 C:\laragon\www\Project Pweb2\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#16 {main}

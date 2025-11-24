@@ -8,8 +8,10 @@ class BookingModel extends Model
     protected $table = 'booking';
     protected $allowedFields = ['service', 'stylist', 'time'];
 
-     public function isBooked($time)
+    public function isBooked($time, $stylist)
     {
-        return $this->where('time', $time)->countAllResults() > 0;
+        return $this->where('time', $time)
+                    ->where('stylist', $stylist)
+                    ->countAllResults() > 0;
     }
 }
