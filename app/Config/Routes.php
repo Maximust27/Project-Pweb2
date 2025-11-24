@@ -35,6 +35,10 @@ $routes->group('admin', ['filter' => 'role:admin'], function ($routes) {
     $routes->get('dashboard', 'AdminController::index');
 });
 
+// Halaman booking untuk admin
+$routes->get('/admin/booking', 'AdminBookingController::index_adm');
+
+
 // =====================
 // BOOKING
 // =====================
