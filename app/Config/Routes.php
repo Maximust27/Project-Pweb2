@@ -10,6 +10,7 @@ use CodeIgniter\Router\RouteCollection;
 // AUTH
 // =====================
 $routes->get('/', 'Home::index');
+$routes->get('home', 'Home::user');
 
 $routes->get('login', 'Login::index');
 $routes->match(['get','post'], 'login/auth', 'Login::auth');
@@ -35,6 +36,10 @@ $routes->group('admin', ['filter' => 'role:admin'], function ($routes) {
     $routes->get('dashboard', 'AdminController::index');
 });
 
+// Halaman booking untuk admin
+$routes->get('/admin/booking', 'AdminBookingController::index_adm');
+
+
 // =====================
 // BOOKING
 // =====================
@@ -44,7 +49,9 @@ $routes->get('/admin/edit_service', 'ServiceController::edit');
 
 
 $routes->get('booking', 'BookingController::index');
+$routes->get('notif', 'LayoutAdmin::notif');
 $routes->get('service', 'LayoutAdmin::service');
+$routes->get('dashboard-admin', 'LayoutAdmin::dashboard_admin');
 
 $routes->get('booking', 'BookingController::index');
 $routes->post('booking/save', 'BookingController::save');
