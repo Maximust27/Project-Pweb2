@@ -77,49 +77,42 @@ Dashboard
                 </tr>
             </thead>
 
-           <tbody class="divide-y">
+            <
+                <!-- Example Row -->
+                <tbody class="divide-y">
+tr>
+                    <td class="px-6 py-4 flex items-center gap-3">
+                        <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+                        Rocky Gerung
+                    </td>
+                    <td class="px-6 py-4"><?php foreach ($recentBookings as $row) : ?></td>
+                    <td class="px-6 py-4">2025-10-01</td>
+                    <td class="px-6 py-4">10:00</td>
+                    <td class="px-6 py-4">10:30</td>
+                    <td class="px-6 py-4 text-center">
+                        <button class="bg-green-300 text-green-600 px-3 py-1 rounded ">Complete</button>
+                        <button class="bg-red-300 text-red-700 px-3 py-1 rounded ml-2">Cancel</button>
+                    </td>
+                </tr>
 
-<?php if (!empty($recentBookings)) : ?>
-    <?php foreach ($recentBookings as $row) : ?>
-        <tr>
-            <td class="px-6 py-4 flex items-center gap-3">
-                <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
-                
-            </td>
+                <tr>
+                    <td class="px-6 py-4 flex items-center gap-3">
+                        <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+                        Rocky Gerung
+                    </td>
+                    <td class="px-6 py-4">Down Perm</td>
+                    <td class="px-6 py-4">2025-10-06</td>
+                    <td class="px-6 py-4">11:00</td>
+                    <td class="px-6 py-4">11:15</td>
+                    <td class="px-6 py-4 text-center">
+                        <button class="bg-green-300 text-green-600 px-3 py-1 rounded">Complete</button>
+                        <button class="bg-red-300 text-red-700 px-3 py-1 rounded ml-2">Cancel</button>
+                    </td>
+                </tr>
 
-            <td class="px-6 py-4">
-                <?= $row['service_name'] ?>
-            </td>
+               
 
-            <td class="px-6 py-4">
-                
-            </td>
-
-            <td class="px-6 py-4">
-                
-            </td>
-
-            <td class="px-6 py-4">
-                
-            </td>
-
-            <td class="px-6 py-4 text-center">
-                <button class="bg-green-300 text-green-600 px-3 py-1 rounded">Complete</button>
-                <button class="bg-red-300 text-red-700 px-3 py-1 rounded ml-2">Cancel</button>
-            </td>
-        </tr>
-    <?php endforeach; ?>
-
-<?php else : ?>
-    <tr>
-        <td colspan="6" class="text-center py-4 text-gray-500">
-            Tidak ada booking
-        </td>
-    </tr>
-<?php endif; ?>
-
-</tbody>
-
+            </tbody>
         </table>
     </div>
 

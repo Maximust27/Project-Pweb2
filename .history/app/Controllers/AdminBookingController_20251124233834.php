@@ -13,6 +13,4 @@ class AdminBookingController extends BaseController
 
         return view('admin/booking_adm', $data);
     }
-
-    
 }

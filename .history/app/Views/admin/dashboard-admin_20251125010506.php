@@ -96,7 +96,7 @@ Dashboard
             </td>
 
             <td class="px-6 py-4">
-                
+                <?= $row['start_time'] ?>
             </td>
 
             <td class="px-6 py-4">

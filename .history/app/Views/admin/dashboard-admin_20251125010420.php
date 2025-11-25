@@ -84,7 +84,7 @@ Dashboard
         <tr>
             <td class="px-6 py-4 flex items-center gap-3">
                 <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
-                
+                <?= $row['customer_name'] ?>
             </td>
 
             <td class="px-6 py-4">
@@ -92,15 +92,15 @@ Dashboard
             </td>
 
             <td class="px-6 py-4">
-                
+                <?= $row['date'] ?>
             </td>
 
             <td class="px-6 py-4">
-                
+                <?= $row['start_time'] ?>
             </td>
 
             <td class="px-6 py-4">
-                
+                <?= $row['end_time'] ?>
             </td>
 
             <td class="px-6 py-4 text-center">

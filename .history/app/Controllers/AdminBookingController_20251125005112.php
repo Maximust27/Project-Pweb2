@@ -14,5 +14,11 @@ class AdminBookingController extends BaseController
         return view('admin/booking_adm', $data);
     }
 
-    
+    public function dashboard()
+    {
+        $bookingModel = new BookingModel();
+        $data['orders'] = $bookingModel->getBookingWithDetails();
+
+        return view('admin/dashboard', $data);
+    }
 }
