@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 WARNING - 2025-11-25 01:03:45 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
@@ -234,486 +235,847 @@ WARNING - 2025-11-25 01:04:52 --> [DEPRECATED] Passing lowercase HTTP method "ge
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+WARNING - 2025-11-25 00:58:58 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CLI\Console.php(41): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\Boot.php(388): CodeIgniter\CLI\Console->run()
  6 SYSTEMPATH\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
  7 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+<<<<<<< HEAD
 WARNING - 2025-11-25 01:04:52 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+WARNING - 2025-11-25 00:58:58 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CLI\Console.php(41): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\Boot.php(388): CodeIgniter\CLI\Console->run()
  6 SYSTEMPATH\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
  7 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+<<<<<<< HEAD
 WARNING - 2025-11-25 01:05:04 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+WARNING - 2025-11-25 00:59:05 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:05:04 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 00:59:05 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 DEBUG - 2025-11-25 01:05:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 WARNING - 2025-11-25 01:05:06 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 00:59:09 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:05:06 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 00:59:09 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 DEBUG - 2025-11-25 01:05:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 WARNING - 2025-11-25 01:05:09 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 00:59:47 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:05:09 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 00:59:47 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:05:15 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+DEBUG - 2025-11-25 00:59:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-25 00:59:59 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:05:15 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 00:59:59 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 DEBUG - 2025-11-25 01:05:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 WARNING - 2025-11-25 01:05:16 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+DEBUG - 2025-11-25 00:59:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-25 01:00:00 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:05:16 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 01:00:00 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 DEBUG - 2025-11-25 01:05:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 WARNING - 2025-11-25 01:05:40 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+DEBUG - 2025-11-25 01:00:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-25 01:00:09 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:05:40 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 01:00:09 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 DEBUG - 2025-11-25 01:05:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 WARNING - 2025-11-25 01:05:40 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+DEBUG - 2025-11-25 01:00:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-25 01:00:10 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:05:40 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 01:00:10 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 DEBUG - 2025-11-25 01:05:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 WARNING - 2025-11-25 01:05:45 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+DEBUG - 2025-11-25 01:00:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-25 01:00:10 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:05:45 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 01:00:10 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:05:46 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 01:00:10 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:05:46 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 01:00:10 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:05:53 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 01:00:10 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:05:53 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 01:00:10 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 DEBUG - 2025-11-25 01:05:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 WARNING - 2025-11-25 01:06:07 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 01:00:10 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:06:07 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 01:00:10 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:06:07 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 01:00:40 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:06:07 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 01:00:40 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:06:10 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+DEBUG - 2025-11-25 01:00:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-25 01:00:40 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:06:10 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 01:00:40 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:06:23 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+DEBUG - 2025-11-25 01:00:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-25 01:00:50 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:06:23 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 01:00:50 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:06:24 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 01:01:08 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:06:24 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 01:01:08 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:06:26 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+DEBUG - 2025-11-25 01:01:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-25 01:01:09 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:06:26 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 01:01:09 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:06:28 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+DEBUG - 2025-11-25 01:01:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-25 01:01:21 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:06:28 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 01:01:21 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:06:28 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+DEBUG - 2025-11-25 01:01:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-25 01:01:21 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:06:28 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 01:01:21 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:06:33 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+DEBUG - 2025-11-25 01:01:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-25 01:01:32 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:06:33 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 01:01:32 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:06:49 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 01:01:45 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:06:49 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 01:01:45 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:06:52 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+DEBUG - 2025-11-25 01:01:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-25 01:03:49 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:06:52 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
  2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
  3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\Project-Pweb2\\app\\Config\\Routes.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+WARNING - 2025-11-25 01:03:49 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH\Config\Routes.php(16): CodeIgniter\Router\RouteCollection->match([...], 'login/auth', 'Login::auth')
+ 3 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\laragon\\www\\Project-Pweb2\\app\\Config\\Routes.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1
  4 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
 WARNING - 2025-11-25 01:06:54 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1026.
  1 SYSTEMPATH\Router\RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
@@ -1113,3 +1475,6 @@ WARNING - 2025-11-25 01:09:40 --> [DEPRECATED] Passing lowercase HTTP method "po
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Project-Pweb2\\public\\index.php')
+=======
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Project-Pweb2\\public\\index.php')
+>>>>>>> 4f38257e82a216dd5635dc2a4c88b925cd35f6b1

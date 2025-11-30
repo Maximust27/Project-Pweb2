@@ -67,7 +67,20 @@ class LayoutAdmin extends BaseController
     }
 
     public function dashboard_admin()
-    {
-        return view('admin/dashboard-admin');
-    }
+{
+    $db = \Config\Database::connect();
+
+    $builder = $db->table('booking')
+        ->select('booking.*, booking_details.service_name')
+        ->join('booking_details', 'booking_details.booking_id = booking.id')
+        // ->orderBy('booking.date', 'DESC')
+        ->limit(5);
+
+    $data['recentBookings'] = $builder->get()->getResultArray();
+
+    return view('admin/dashboard-admin', $data);
+}
+
+
+    
 }
