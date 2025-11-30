@@ -17,8 +17,10 @@ class LayoutAdmin extends BaseController
         $adminModel = new AdminModel();
         $skillModel = new SkillModel();
 
-        $admin = $adminModel->find(1);
-        $skills = $skillModel->where('admin_id', 1)->findAll();
+        $id = session()->get('user_id'); // ID admin yang sedang login
+
+        $admin = $adminModel->find($id); //ambil data admin (ID yang sedang login.)
+        $skills = $skillModel->where('admin_id', $id)->findAll(); //ambil semau data skill
 
         return view('admin/profile_adm', [
             'admin' => $admin,
@@ -29,7 +31,7 @@ class LayoutAdmin extends BaseController
     public function updateProfile() //update profile admin
     {
         $adminModel = new AdminModel();
-        $id = 1; //khusus admin id 1
+        $id = session()->get('user_id');
 
         $data = [
             'name'        => $this->request->getPost('name'),
@@ -41,12 +43,12 @@ class LayoutAdmin extends BaseController
         //Upload Foto
         $file = $this->request->getFile('photo');
 
-        if ($file && $file->isValid() && !$file->hasMoved()) {
-            $newName = $file->getRandomName();
-            $file->move('uploads', $newName);
+        if ($file && $file->isValid() && !$file->hasMoved()) { //Jika ada file yang diupload, file itu valid, dan file itu belum pernah dipindahkan sebelumnya
+            $newName = $file->getRandomName(); //Buat nama file baru random
+            $file->move('uploads', $newName); //Pindahkan file yang diupload ke folder bernama ‘uploads’ dengan nama baru tadi
 
-            $data['photo'] = $newName;
-        }
+            $data['photo'] = $newName; //Masukkan nama file baru itu ke array $data dengan key ‘photo’
+        } //Kalau admin upload foto baru, fotonya dipindah ke folder uploads/ dan nama filenya disimpan ke database.
 
         //update database
         $adminModel->update($id, $data);

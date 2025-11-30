@@ -8,9 +8,9 @@ class AdminBookingController extends BaseController
 {
     public function index_adm()
     {
-        $booking = new BookingModel();
-        $data['bookings'] = $booking->findAll();
+        $booking = new BookingModel(); //bikin object model
+        $data['bookings'] = $booking->findAll(); //ambil semua data dari tabel booking disimpan ke $data['bookings']
 
-        return view('admin/booking_adm', $data);
+        return view('admin/booking_adm', $data); //Mengirim data ke tampilan booking_adm
     }
 }
