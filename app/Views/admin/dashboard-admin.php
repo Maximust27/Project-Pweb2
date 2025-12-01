@@ -88,7 +88,7 @@ Dashboard
             </td>
 
             <td class="px-6 py-4">
-                <?= $row['service_name'] ?>
+                <?= $row['service'] ?>
             </td>
 
             <td class="px-6 py-4">

@@ -1,12 +1,11 @@
 <?= $this->extend('layout_admin/sidebar') ?>
 <?= $this->section('page_title') ?>
-PROFILE ADMIN
+Profile
 <?= $this->endSection() ?>
+
 <?= $this->section('content') ?>
 
-    <div class="p-8">
-        <h1 class="text-2xl font-bold mb-6">Profile Admin</h1>
-
+<div class="p-8">
         <div class="bg-white shadow-lg rounded-xl p-10 border border-gray-200 relative">
 
     <!-- ICON EDIT -->
@@ -51,36 +50,69 @@ PROFILE ADMIN
         </div>
     </div>
 
-    <!-- MODAL EDIT -->
-    <div id="editModal" class="fixed inset-0 bg-black bg-opacity-40 hidden items-center justify-center">
-        <div class="bg-white p-8 rounded-xl w-[450px] shadow-xl relative">
+<!-- MODAL EDIT -->
+<div id="editModal" class="fixed inset-0 bg-black bg-opacity-40 hidden items-center justify-center overflow-auto">
+    <div class="bg-white p-8 rounded-xl w-[80%] max-w-4xl shadow-xl relative">
 
-            <h2 class="text-xl font-bold mb-4">Edit Profil</h2>
+        <h2 class="text-2xl font-bold mb-6">Edit Profil</h2>
 
-            <form action="<?= base_url('/admin/updateProfile') ?>" method="POST" enctype="multipart/form-data">
+        <form action="<?= base_url('/admin/updateProfile') ?>" method="POST" enctype="multipart/form-data">
 
-                <label class="block font-semibold">Foto</label>
-                <input type="file" name="photo" class="w-full border p-2 rounded mb-4">
+            <!-- Foto lama -->
+            <input type="hidden" name="photoLama" value="<?= $admin['photo'] ?>">
 
-                <label class="block font-semibold">Nama</label>
-                <input type="text" name="name" value="<?= $admin['name'] ?>" class="w-full border p-2 rounded mb-4">
+            <!-- GRID DUA KOLOM -->
+            <div class="grid grid-cols-2 gap-6">
 
-                <label class="block font-semibold">Nama Lengkap</label>
-                <input type="text" name="full_name" value="<?= $admin['full_name'] ?>" class="w-full border p-2 rounded mb-4">
+                <!-- KOLOM KIRI: Foto & Nama -->
+                <div>
+                    <label class="block font-semibold">Foto</label>
+                    <input type="file" name="photo" class="w-full border p-2 rounded mb-4">
 
-                <label class="block font-semibold">Deskripsi</label>
-                <textarea name="description" class="w-full border p-2 rounded mb-4" rows="4"><?= $admin['description'] ?></textarea>
+                    <label class="block font-semibold">Nama</label>
+                    <input type="text" name="name" value="<?= $admin['name'] ?>" class="w-full border p-2 rounded mb-4">
 
-                <label class="block font-semibold">Judul Skill</label>
-                <input type="text" name="skill_title" value="<?= $admin['skill_title'] ?>" class="w-full border p-2 rounded mb-4">
+                    <label class="block font-semibold">Nama Lengkap</label>
+                    <input type="text" name="full_name" value="<?= $admin['full_name'] ?>" class="w-full border p-2 rounded mb-4">
+                </div>
 
-                <button type="submit" class="bg-black text-white px-4 py-2 rounded-lg"> Simpan </button>
-                <button type="button" onclick="closeEditModal()" class="ml-2 text-gray-700 px-4 py-2"> Batal </button>
-            </form>
-        </div>
-    </div>
+                <!-- KOLOM KANAN: Deskripsi & Skills -->
+                <div>
+                    <label class="block font-semibold">Deskripsi</label>
+                    <textarea name="description" class="w-full border p-2 rounded mb-4" rows="6"><?= $admin['description'] ?></textarea>
+
+                    <label class="block font-semibold">Judul Skill</label>
+                    <input type="text" name="skill_title" value="<?= $admin['skill_title'] ?>" class="w-full border p-2 rounded mb-4">
+
+                    <h3 class="block font-semibold mt-4">Skills</h3>
+                    <div id="skillsContainer" class="mb-4">
+                        <?php foreach ($skills as $s): ?>
+                            <input type="text" name="skills[]" value="<?= $s['skill_name'] ?>" class="w-full border p-2 rounded mb-2">
+                        <?php endforeach; ?>
+                    </div>
+                    <button type="button" onclick="addSkill()" class="text-blue-600 mb-4">Tambah Skill</button>
+                </div>
+
+            </div>
+
+            <!-- BUTTON SIMPAN / BATAL -->
+            <div class="mt-6 flex justify-end gap-2">
+                <button type="submit" class="bg-black text-white px-4 py-2 rounded-lg">Simpan</button>
+                <button type="button" onclick="closeEditModal()" class="text-gray-700 px-4 py-2 border rounded-lg">Batal</button>
+            </div>
+
+        </form>
 
     <script>
+        function addSkill() {
+            let container = document.getElementById('skillsContainer');
+            let input = document.createElement('input');
+            input.type = 'text';
+            input.name = 'skills[]';
+            input.className = 'w-full border p-2 rounded mb-2';
+            container.appendChild(input);
+        }
+
         function openEditModal() {
             document.getElementById('editModal').classList.remove('hidden');
             document.getElementById('editModal').classList.add('flex');

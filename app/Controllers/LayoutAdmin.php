@@ -3,7 +3,9 @@
 namespace App\Controllers;
 
 use App\Models\AdminModel;   
-use App\Models\SkillModel;   
+use App\Models\SkillModel;
+use App\Models\BookingModel;  
+use App\Models\BookingAdmModel; 
 
 class LayoutAdmin extends BaseController
 {
@@ -12,75 +14,119 @@ class LayoutAdmin extends BaseController
         return view('layout_admin/sidebar');
     }
 
-    public function profile()
+    public function index()
     {
         $adminModel = new AdminModel();
         $skillModel = new SkillModel();
 
-        $id = session()->get('user_id'); // ID admin yang sedang login
+        // Ambil admin dengan id = 1 (atau bisa pakai session)
+        $data['admin'] = $adminModel->where('id', 1)->first();
 
-        $admin = $adminModel->find($id); //ambil data admin (ID yang sedang login.)
-        $skills = $skillModel->where('admin_id', $id)->findAll(); //ambil semau data skill
+        // Ambil semua skill admin
+        $data['skills'] = $skillModel->where('admin_id', $data['admin']['id'])->findAll();
 
-        return view('admin/profile_adm', [
-            'admin' => $admin,
-            'skills' => $skills
-        ]);
+        $data['activeMenu'] = 'profile';
+
+        return view('admin/profile_adm', $data);
     }
 
-    public function updateProfile() //update profile admin
+    public function updateProfile()
     {
         $adminModel = new AdminModel();
-        $id = session()->get('user_id');
+        $skillModel = new SkillModel();
 
-        $data = [
-            'name'        => $this->request->getPost('name'),
-            'full_name'   => $this->request->getPost('full_name'),
-            'description' => $this->request->getPost('description'),
-            'skill_title' => $this->request->getPost('skill_title'),
-        ];
+        $idAdmin = 1; 
 
-        //Upload Foto
-        $file = $this->request->getFile('photo');
+        // Validasi input
+        if (!$this->validate([
+            'name' => [
+                'rules' => 'required',
+                'errors' => ['required' => 'Nama harus diisi']
+            ],
+            'photo' => [
+                'rules' => 'max_size[photo,10000]|is_image[photo]|mime_in[photo,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'max_size' => 'Ukuran gambar terlalu besar',
+                    'is_image' => 'File wajib gambar',
+                    'mime_in'  => 'Tipe file gambar tidak sesuai'
+                ]
+            ]
+        ])) {
+            return redirect()->to('/admin/profile_adm')->withInput();
+        }
 
-        if ($file && $file->isValid() && !$file->hasMoved()) { //Jika ada file yang diupload, file itu valid, dan file itu belum pernah dipindahkan sebelumnya
-            $newName = $file->getRandomName(); //Buat nama file baru random
-            $file->move('uploads', $newName); //Pindahkan file yang diupload ke folder bernama ‘uploads’ dengan nama baru tadi
+        // Handle upload foto
+        $filePhoto = $this->request->getFile('photo');
+        if ($filePhoto->getError() == 4) {
+            $namaPhoto = $this->request->getVar('photoLama'); // gunakan foto lama
+        } else {
+            $namaPhoto = $filePhoto->getRandomName();
+            $filePhoto->move('uploads', $namaPhoto);
+        }
 
-            $data['photo'] = $newName; //Masukkan nama file baru itu ke array $data dengan key ‘photo’
-        } //Kalau admin upload foto baru, fotonya dipindah ke folder uploads/ dan nama filenya disimpan ke database.
+        // Update admin
+        $adminModel->save([
+            'id'          => $idAdmin,
+            'name'        => $this->request->getVar('name'),
+            'full_name'   => $this->request->getVar('full_name'),
+            'description' => $this->request->getVar('description'),
+            'skill_title' => $this->request->getVar('skill_title'),
+            'photo'       => $namaPhoto
+        ]);
 
-        //update database
-        $adminModel->update($id, $data);
+        // Update skills
+        $skillsInput = $this->request->getPost('skills') ?? [];
 
-        return redirect()->to('/admin/profile')->with('success', 'Profil berhasil diperbarui!');
+        // Hapus skill lama
+        $skillModel->where('admin_id', $idAdmin)->delete();
+
+        // Insert skill baru
+        foreach ($skillsInput as $skillName) {
+            if (!empty(trim($skillName))) {
+                $skillModel->insert([
+                    'admin_id' => $idAdmin,
+                    'skill_name' => $skillName
+                ]);
+            }
+        }
+
+        session()->setFlashdata('success', 'Profile berhasil diupdate');
+        return redirect()->to('/admin/profile_adm');
     }
 
     public function notif()
     {
-        return view('admin/notif');
-    }
+        $bookingModel = new BookingAdmModel();
 
-    public function service()
-    {
-        return view('admin/service');
+        $newBookings = $bookingModel->getNewBookings(5); // ambil 5 booking terbaru
+
+        return view('admin/notif', [
+            'recentBookings' => $newBookings,
+            'activeMenu' => 'notif'
+        ]);
     }
 
     public function dashboard_admin()
-{
-    $db = \Config\Database::connect();
+    {
+        $bookingModel = new BookingAdmModel();
 
-    $builder = $db->table('booking')
-        ->select('booking.*, booking_details.service_name')
-        ->join('booking_details', 'booking_details.booking_id = booking.id')
-        // ->orderBy('booking.date', 'DESC')
-        ->limit(5);
+        // Ambil 5 booking terbaru (status bisa ditambah filter jika mau)
+        $recentBookings = $bookingModel
+            ->orderBy('tanggal', 'DESC')
+            ->findAll(5);
 
-    $data['recentBookings'] = $builder->get()->getResultArray();
+        // Total clients & total service (contoh sederhana)
+        $totalClients = $bookingModel->countAllResults();
+        $totalService = $bookingModel->distinct()->select('service')->countAllResults();
 
-    return view('admin/dashboard-admin', $data);
-}
+        $data = [
+            'activeMenu' => 'dashboard',
+            'recentBookings' => $recentBookings,
+            'totalClients' => $totalClients,
+            'totalService' => $totalService
+        ];
 
-
+        return view('admin/dashboard-admin', $data);
+    }
     
 }

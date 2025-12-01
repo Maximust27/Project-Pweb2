@@ -11,6 +11,6 @@ class SkillModel extends Model
 
     protected $allowedFields = [
         'admin_id',
-        'name'
+        'skill_name'
     ];
 }

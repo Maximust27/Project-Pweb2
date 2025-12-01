@@ -1,13 +1,16 @@
 <?= $this->extend('layout_admin/sidebar') ?>
 <?= $this->section('page_title') ?>
-SERVICE
+Service
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
 
 <!-- Services Content Section -->
 <div class="bg-white shadow rounded-lg p-6">
-    <h2 class="text-xl font-bold mb-4">All Service</h2>
+    <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-bold">All Services</h2>
+        <a href="<?= base_url('admin/tambah_service/') ?>" class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800">Tambah Service</a>
+    </div>
 
     <div class="overflow-x-auto">
         <table class="min-w-full border border-gray-200 rounded-lg overflow-hidden">
@@ -20,40 +23,28 @@ SERVICE
                 </tr>
             </thead>
             <tbody class="divide-y">
-                <tr>
-                    <td class="px-6 py-4">
-                        <img src="/img/cornrow.jpg" class="w-20 h-20 rounded-lg object-cover" />
-                    </td>
-                    <td class="px-6 py-4 text-gray-800">Cornrow</td>
-                    <td class="px-6 py-4 text-gray-800">Rp125.000,-</td>
-                    <td class="px-6 py-4 text-center">
-                        <button class="bg-green-700 text-white px-4 py-1 rounded hover:bg-green-800">Ubah</button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="px-6 py-4">
-                        <img src="/img/hairperm.jpg" class="w-20 h-20 rounded-lg object-cover" />
-                    </td>
-                    <td class="px-6 py-4 text-gray-800">Hair Perm</td>
-                    <td class="px-6 py-4 text-gray-800">Rp100.000,-</td>
-                    <td class="px-6 py-4 text-center">
-                        <button class="bg-green-700 text-white px-4 py-1 rounded hover:bg-green-800">Ubah</button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="px-6 py-4">
-                        <img src="/img/keratin.jpg" class="w-20 h-20 rounded-lg object-cover" />
-                    </td>
-                    <td class="px-6 py-4 text-gray-800">Keratin Treatment</td>
-                    <td class="px-6 py-4 text-gray-800">Rp100.000,-</td>
-                    <td class="px-6 py-4 text-center">
-                        <button class="bg-green-700 text-white px-4 py-1 rounded hover:bg-green-800">Ubah</button>
-                    </td>
-                </tr>
+                <?php if(!empty($services)): ?>
+                    <?php foreach($services as $service): ?>
+                        <tr>
+                            <td class="px-6 py-4">
+                                <img src="/uploads/<?= esc($service['image']) ?>" class="w-20 h-20 rounded-lg object-cover" />
+                            </td>
+                            <td class="px-6 py-4 text-gray-800"><?= esc($service['service_name']) ?></td>
+                            <td class="px-6 py-4 text-gray-800">Rp<?= number_format($service['price'],0,",",".") ?>,-</td>
+                            <td class="px-6 py-4 text-center flex justify-center gap-2">
+                                <a href="<?= base_url('admin/edit_service/'.$service['id']) ?>" class="bg-green-700 text-white px-4 py-1 rounded hover:bg-green-800">Ubah</a>
+                                <a href="<?= base_url('admin/service/hapus/'.$service['id']) ?>" class="bg-red-700 text-white px-4 py-1 rounded hover:bg-red-800" onclick="return confirm('Yakin ingin menghapus?')">Hapus</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="4" class="text-center py-4 text-gray-500">Belum ada service</td>
+                    </tr>
+                <?php endif; ?>
             </tbody>
         </table>
     </div>
 </div>
+
 <?= $this->endSection() ?>

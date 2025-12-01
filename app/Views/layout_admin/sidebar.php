@@ -49,8 +49,8 @@
             <nav class="mt-4 flex flex-col space-y-2 px-3">
 
                 <!-- Dashboard -->
-                <a href="#"
-                   class="flex items-center gap-3 px-4 py-2 rounded-md bg-[#1A1A1A] hover:bg-[#D4AF37] transition text-white">
+                <a href="<?= base_url('dashboard-admin') ?>"
+                            class="flex items-center gap-3 px-4 py-2 rounded-md <?= ($activeMenu ?? '') === 'dashboard' ? 'bg-[#D4AF37] text-white' : 'bg-[#1A1A1A] text-white' ?> hover:bg-[#D4AF37] transition">
                     <span class="w-5 h-5">
                         <svg viewBox="0 0 24 24" fill="none" class="w-5 h-5">
                             <path d="M3 3V21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -62,8 +62,8 @@
                 </a>
 
                 <!-- Bookings -->
-                <a href="#"
-                   class="flex items-center gap-3 px-4 py-2 rounded-md bg-[#1A1A1A] hover:bg-[#D4AF37] transition text-white">
+                <a href="<?= base_url('admin/booking_adm') ?>"
+                            class="flex items-center gap-3 px-4 py-2 rounded-md <?= ($activeMenu ?? '') === 'booking_adm' ? 'bg-[#D4AF37] text-white' : 'bg-[#1A1A1A] text-white' ?> hover:bg-[#D4AF37] transition">
                     <span class="w-5 h-5">
                         <svg viewBox="0 0 24 24" fill="none" class="w-5 h-5">
                             <path d="M3 9H21M9 15L11 17L15 13M7 3V5M17 3V5M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z"
@@ -74,8 +74,8 @@
                 </a>
 
                 <!-- Services -->
-                <a href="#"
-                   class="flex items-center gap-3 px-4 py-2 rounded-md bg-[#1A1A1A] hover:bg-[#D4AF37] transition text-white">
+                <a href="<?= base_url('admin/service') ?>"
+                            class="flex items-center gap-3 px-4 py-2 rounded-md <?= ($activeMenu ?? '') === 'service' ? 'bg-[#D4AF37] text-white' : 'bg-[#1A1A1A] text-white' ?> hover:bg-[#D4AF37] transition">
                     <span class="w-5 h-5">
                         <svg viewBox="0 0 512 512" fill="#fff" class="w-6 h-6 rotate-90">
                             <path d="M424.994 126.551c30.029-30.029 30.018-78.738 0-108.766l-1.468-1.457L269.463 170.391l55.852 55.851L424.994 126.551z"/>
@@ -86,8 +86,8 @@
                 </a>
 
                 <!-- Notification -->
-                <a href="#"
-                   class="flex items-center gap-3 px-4 py-2 rounded-md bg-[#1A1A1A] hover:bg-[#D4AF37] transition text-white">
+                <a href="<?= base_url('admin/notif') ?>"
+                            class="flex items-center gap-3 px-4 py-2 rounded-md <?= ($activeMenu ?? '') === 'notif' ? 'bg-[#D4AF37] text-white' : 'bg-[#1A1A1A] text-white' ?> hover:bg-[#D4AF37] transition">
                     <span class="w-5 h-5">
                         <svg width="24" viewBox="0 0 512 512" fill="#fff">
                             <path d="M364.032,355.035c-3.862-1.446-8.072-3.436-12.35-5.794l-71.57,98.935l-5.09-64.814h-38.033l-5.091,64.814 
@@ -105,8 +105,8 @@
                 </a>
 
                 <!-- Profile -->
-                <a href="#"
-                   class="flex items-center gap-3 px-4 py-2 rounded-md bg-[#1A1A1A] hover:bg-[#D4AF37] transition text-white">
+                <a href="<?= base_url('admin/profile_adm') ?>"
+                            class="flex items-center gap-3 px-4 py-2 rounded-md <?= ($activeMenu ?? '') === 'profile_adm' ? 'bg-[#D4AF37] text-white' : 'bg-[#1A1A1A] text-white' ?> hover:bg-[#D4AF37] transition">
                     <span class="w-5 h-5">
                         <svg viewBox="0 0 24 24" width="26" fill="#e9e2e2">
                             <path fill-rule="evenodd" clip-rule="evenodd"

@@ -53,3 +53,4 @@ class Login extends BaseController
         return redirect()->to('/login');
     }
 }
+

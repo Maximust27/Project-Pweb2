@@ -31,21 +31,31 @@ $routes->group('user', ['filter' => 'role:user'], function($routes){
 // =====================
 // ADMIN AREA
 // =====================
-$routes->group('admin', ['filter' => 'role:admin'], function ($routes) {
+$routes->get('/', 'LayoutAdmin::index');
 
-    $routes->get('dashboard', 'AdminController::index');
+// Dashboard
+$routes->get('admin/dashboard_admin', 'LayoutAdmin::dashboard_admin');
 
-    // PROFILE ADMIN
-    $routes->get('profile', 'LayoutAdmin::profile');
-    $routes->post('updateProfile', 'LayoutAdmin::updateProfile');
 
-    // BOOKING ADMIN
-    $routes->get('booking', 'AdminBookingController::index_adm');
+// Services
+$routes->get('admin/service', 'ServiceController::index');
+$routes->get('admin/tambah_service', 'ServiceController::tambah');
+$routes->post('admin/service/simpan', 'ServiceController::simpan');
+$routes->get('admin/edit_service/(:num)', 'ServiceController::edit/$1');
+$routes->post('admin/service/update/(:num)', 'ServiceController::update/$1');
+$routes->get('admin/service/hapus/(:num)', 'ServiceController::hapus/$1');
 
-    // SERVICE EDIT
-    $routes->get('edit_service', 'ServiceController::edit');
+// Bookings
 
-});
+
+// Notif
+$routes->get('admin/notif', 'LayoutAdmin::notif', ['as' => 'admin.notif']);
+
+
+// Profile
+$routes->get('admin/profile_adm', 'LayoutAdmin::index');
+$routes->post('admin/updateProfile', 'LayoutAdmin::updateProfile');
+
 
 // =====================
 // PAGE TANPA FILTER
