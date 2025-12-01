@@ -34,6 +34,11 @@ class CreateBookingTables extends Migration
                 'constraint' => '10,0', // Bisa menampung angka jutaan
                 'default'    => 0
             ],
+            'status' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '20',
+                'default'    => 'pending',
+            ],
             'created_at' => ['type' => 'DATETIME', 'null' => true],
             'updated_at' => ['type' => 'DATETIME', 'null' => true],
         ]);
