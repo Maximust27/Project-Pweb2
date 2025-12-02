@@ -31,7 +31,7 @@
   }
 </style>
 
-<form action="<?= base_url('booking/save') ?>" method="POST" id="bookingForm">
+<form action="<?= base_url('user/booking/save') ?>" method="POST" id="bookingForm">
 <main class="font-montaga bg-white text-gray-800 relative">
   <div class="max-w-md lg:max-w-4xl mx-auto px-5 py-8 pb-32">
 
@@ -54,13 +54,12 @@
             ['label'=>'Gimbal','price'=>'125.000'],
           ];
           foreach($haircuts as $h):
-            // LOGIKA NAMA FILE: "Basic" -> "gambar_basic.jpg"
             $cleanName = strtolower(str_replace([' + ', ' '], '_', $h['label']));
             $img = "gambar_" . $cleanName . ".jpg";
         ?>
         <div class="flex flex-col">
           <div class="relative w-full aspect-square rounded-2xl overflow-hidden bg-gray-200 mb-3">
-            <img src="/img/<?= $img ?>" class="w-full h-full object-cover">
+            <img src="<?= base_url('img/' . $img) ?>" class="w-full h-full object-cover">
           </div>
           <div class="text-center">
             <div class="text-sm lg:text-base text-gray-800 mb-2"><?= $h['label'] ?></div>
@@ -69,7 +68,7 @@
               onclick="toggleService(this)"
               data-name="<?= $h['label'] ?>"
               data-price="<?= $h['price'] ?>"
-              data-image="/img/<?= $img ?>">
+              data-image="<?= base_url('img/' . $img) ?>">
               <?= $h['price'] ?>
             </button>
           </div>
@@ -90,13 +89,12 @@
               ['label'=>'Bleaching + Buzzcut','price'=>'120.000'],
             ];
             foreach($colorings as $c):
-                // LOGIKA NAMA FILE: "Bleaching + Coloring" -> "gambar_bleaching_coloring.jpg"
                 $cleanName = strtolower(str_replace([' + ', ' '], '_', $c['label']));
                 $img = "gambar_" . $cleanName . ".jpg";
           ?>
           <div class="flex flex-col">
             <div class="relative w-full aspect-square rounded-2xl overflow-hidden bg-gray-200 mb-3">
-              <img src="/img/<?= $img ?>" class="w-full h-full object-cover">
+              <img src="<?= base_url('img/' . $img) ?>" class="w-full h-full object-cover">
             </div>
             <div class="text-center">
               <div class="text-sm lg:text-base text-white mb-2"><?= $c['label'] ?></div>
@@ -105,7 +103,7 @@
                 onclick="toggleService(this)"
                 data-name="<?= $c['label'] ?>"
                 data-price="<?= $c['price'] ?>"
-                data-image="/img/<?= $img ?>">
+                data-image="<?= base_url('img/' . $img) ?>">
                 <?= $c['price'] ?>
               </button>
             </div>
@@ -124,7 +122,6 @@
             ['label'=>'Down Perm','price'=>'100.000']
           ];
           foreach($perms as $p):
-            // LOGIKA NAMA FILE: "Hair Perm" -> "gambar_hair_perm.jpg"
             $cleanName = strtolower(str_replace([' + ', ' '], '_', $p['label']));
             $img = "gambar_" . $cleanName . ".jpg";
         ?>
@@ -133,9 +130,9 @@
           onclick="toggleService(this)"
           data-name="<?= $p['label'] ?>"
           data-price="<?= $p['price'] ?>"
-          data-image="/img/<?= $img ?>">
+          data-image="<?= base_url('img/' . $img) ?>">
           <div class="w-28 h-28 lg:w-32 lg:h-32 rounded-xl overflow-hidden bg-gray-200 mr-4 flex-shrink-0">
-            <img src="/img/<?= $img ?>" class="w-full h-full object-cover">
+            <img src="<?= base_url('img/' . $img) ?>" class="w-full h-full object-cover">
           </div>
           <div class="flex flex-col justify-center text-left">
             <div class="text-base lg:text-lg text-gray-800 mb-2"><?= $p['label'] ?></div>
@@ -156,7 +153,6 @@
               ['label'=>'Creambath Treatment','price'=>'100.000']
             ];
             foreach($treatments as $t):
-               // LOGIKA NAMA FILE: "Keratin Treatment" -> "gambar_keratin_treatment.jpg"
                $cleanName = strtolower(str_replace([' + ', ' '], '_', $t['label']));
                $img = "gambar_" . $cleanName . ".jpg";
           ?>
@@ -165,9 +161,9 @@
             onclick="toggleService(this)"
             data-name="<?= $t['label'] ?>"
             data-price="<?= $t['price'] ?>"
-            data-image="/img/<?= $img ?>">
+            data-image="<?= base_url('img/' . $img) ?>">
             <div class="w-28 h-28 lg:w-32 lg:h-32 rounded-xl overflow-hidden bg-gray-200 mr-4 flex-shrink-0">
-              <img src="/img/<?= $img ?>" class="w-full h-full object-cover">
+              <img src="<?= base_url('img/' . $img) ?>" class="w-full h-full object-cover">
             </div>
             <div class="flex flex-col justify-center text-left">
               <div class="text-base lg:text-lg text-gray-800 mb-2"><?= $t['label'] ?></div>
@@ -185,9 +181,8 @@
 
         <div class="flex justify-center gap-6 lg:gap-10">
           <?php
-            $stylists = ['Tisna','Pinkky','Ahnaf'];
+            $stylists = ['Tisna','Pinnki','Ahnaf'];
             foreach($stylists as $s):
-              // Ubah "Tisna" jadi "tisna.jpg" (Huruf kecil)
               $imgStylist = strtolower($s) . ".jpg";
           ?>
           <button type="button"
@@ -196,7 +191,7 @@
             data-label="<?= $s ?>">
             
             <div class="w-24 h-32 lg:w-32 lg:h-40 rounded-2xl bg-gray-200 overflow-hidden mb-3">
-              <img src="/img/<?= $imgStylist ?>" class="w-full h-full object-cover">
+              <img src="<?= base_url('img/' . $imgStylist) ?>" class="w-full h-full object-cover">
             </div>
             <div class="text-sm lg:text-base font-semibold"><?= $s ?></div>
           </button>
@@ -210,7 +205,8 @@
         <div class="grid grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-4 mb-4 lg:mb-6">
           <?php foreach($slots as $slot): ?>
               <?php 
-                  $isBooked = $stylist ? $bookingModel->isBooked($slot, $stylist) : false;
+                  // FIX: Tambah isset() untuk mencegah error jika $stylist belum dipilih
+                  $isBooked = (isset($stylist) && $stylist) ? $bookingModel->isBooked($slot, $stylist) : false;
               ?>
               <button type="button"
                   class="
@@ -302,7 +298,7 @@
             checkAvailability(btn.dataset.label);
 
             setTimeout(() => {
-                 document.getElementById('timeSection').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  document.getElementById('timeSection').scrollIntoView({ behavior: 'smooth', block: 'center' });
             }, 300);
         });
     });
@@ -349,23 +345,33 @@
         return true;
     }
 
-    // --- 5. CEK SLOT AJAX ---
+    // --- 5. CEK SLOT AJAX (FIXED URL) ---
     function checkAvailability(stylistName) {
         document.body.style.cursor = 'wait';
-        fetch(`/booking/slots?stylist=${stylistName}`)
-            .then(res => res.json())
+        
+        // BUG FIX DISINI: Menambahkan prefix "user/" dan menggunakan base_url via PHP
+        const url = '<?= base_url('user/booking/slots') ?>' + '?stylist=' + stylistName;
+
+        fetch(url)
+            .then(res => {
+                if (!res.ok) throw new Error("Gagal mengambil data slot");
+                return res.json();
+            })
             .then(data => {
                 document.body.style.cursor = 'default';
                 timeButtons.forEach(btn => {
                     const slotData = data.find(s => s.time === btn.dataset.label);
                     
+                    // Reset kelas dasar
                     btn.className = "text-xs lg:text-sm px-3 py-2 lg:py-3 rounded-full w-full border option-btn-2 transition-all duration-300 ";
 
                     if (slotData && slotData.booked) {
                         btn.classList.add("booked-slot");
                         btn.disabled = true;
+                        // Jika slot yang dipilih ternyata sudah dibooking orang lain saat refresh
                         if (timeInput.value === btn.dataset.label) {
                             timeInput.value = ""; 
+                            alert("Maaf, slot jam " + btn.dataset.label + " baru saja diambil orang lain.");
                         }
                     } else {
                         btn.disabled = false;
@@ -383,6 +389,7 @@
             });
     }
 
+    // Auto Refresh setiap 5 detik
     setInterval(() => {
         if(stylistInput.value) checkAvailability(stylistInput.value);
     }, 5000);

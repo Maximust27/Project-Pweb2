@@ -47,7 +47,7 @@
         <div class="flex flex-col md:flex-row md:space-x-8 text-white text-[16px] space-y-4 md:space-y-0 mt-4 md:mt-0">
           <a href="<?= base_url('home') ?>" class="hover:text-[#b88a00] transition">Home</a>
           <a href="<?= base_url('') ?>#about" class="hover:text-[#b88a00] transition">About</a>
-          <a href="<?= base_url('booking') ?>" class="hover:text-[#b88a00] transition">Booking</a>
+          <a href="<?= base_url('user/booking') ?>" class="hover:text-[#b88a00] transition">Booking</a>
         </div>
 
         <!-- Profile -->
@@ -64,7 +64,7 @@
     <div id="mobile-menu" class="hidden flex-col md:hidden mt-4 space-y-4 text-center text-white text-[16px]">
       <a href="<?= base_url('/') ?>" class="text-[#b88a00] border-b-2 border-[#b88a00] pb-0.5">Home</a>
       <a href="<?= base_url('') ?>#about" class="hover:text-[#b88a00] transition">About</a>
-      <a href="<?= base_url('booking') ?>" class="hover:text-[#b88a00] transition">Booking</a>
+      <a href="<?= base_url('user/booking') ?>" class="hover:text-[#b88a00] transition">Booking</a>
       <button class="flex items-center justify-center gap-2 bg-[#b88a00] text-white text-[15px] font-medium px-5 py-1.5 rounded-full hover:bg-[#c49c20] transition w-fit mx-auto">
         <svg viewBox="0 0 24 24" width="26" fill="#e9e2e2">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5 7.063C16.5 10.258 14.57 13 12 13c-2.572 0-4.5-2.742-4.5-5.938C7.5 3.868 9.16 2 12 2s4.5 1.867 4.5 5.063zM4.102 20.142C4.487 20.6 6.145 22 12 22c5.855 0 7.512-1.4 7.898-1.857a.416.416 0 0 0 .09-.317C19.9 18.944 19.106 15 12 15s-7.9 3.944-7.989 4.826a.416.416 0 0 0 .091.317z"/>

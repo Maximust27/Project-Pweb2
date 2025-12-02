@@ -135,7 +135,7 @@
 
       <!-- Hairstylist 1 -->
       <div class="relative group border border-yellow-500 p-1 rounded-sm bg-[#111] w-[230px] mx-auto">
-        <img src="<?= base_url('img/tisna.jpg') ?>" alt="Tisna" class="object-cover w-full h-[300px]">
+        <img src="<?= base_url('img/ahnaf.jpg') ?>" alt="Ahnaf" class="object-cover w-full h-[300px]">
         <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-90 text-center py-3">
           <h3 class="text-lg font-semibold">Ahnaf</h3>
           <p class="text-gray-300 text-sm">master banget</p>
@@ -153,7 +153,7 @@
 
       <!-- Hairstylist 3 -->
       <div class="relative group border border-yellow-500 p-1 rounded-sm bg-[#111] w-[230px] mx-auto">
-        <img src="<?= base_url('img/pinnki.jpg') ?>" alt="Pinnki" class="object-cover w-full h-[300px]">
+        <img src="<?= base_url('img/pinkki.jpg') ?>" alt="Pinkki" class="object-cover w-full h-[300px]">
         <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-90 text-center py-3">
           <h3 class="text-lg font-semibold">Pinnki</h3>
           <p class="text-gray-300 text-sm">master banget</p>

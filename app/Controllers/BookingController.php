@@ -95,6 +95,6 @@ class BookingController extends BaseController
             ]);
         }
 
-        return redirect()->to('/booking')->with('success', 'Booking berhasil!');
+        return redirect()->to('user/booking')->with('success', 'Booking berhasil!');
     }
 }
