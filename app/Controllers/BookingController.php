@@ -2,40 +2,39 @@
 namespace App\Controllers;
 use App\Models\BookingModel;
 use App\Models\BookingDetailModel;
+use App\Models\ServiceModel;
 
 class BookingController extends BaseController
 {
     public function index()
     {
-        $bookingModel = new BookingModel();
-        
-        $slots = ['09.00','10.00','11.00','12.00','13.00','14.00','15.00','16.00','17.00','18.00','19.00','20.00'];
+        $serviceModel = new ServiceModel();
 
-        $stylist = $this->request->getGet('stylist') ?? null;
-
+        // Ambil semua service, urutkan agar rapi
         $data = [
-            'slots' => $slots,
-            'stylist' => $stylist,
-            'bookingModel' => $bookingModel
+            'services' => $serviceModel->orderBy('id', 'ASC')->findAll(),
+            // Contoh data stylist dan slot
+            'stylists' => ['Tisna', 'Pinnki', 'Ahnaf'],
+            'slots'    => ['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00'],
         ];
 
         return view('user/booking', $data);
     }
 
-
     public function getSlots()
     {
         $bookingModel = new BookingModel();
-        $slots = ['09.00','10.00','11.00','12.00','13.00','14.00','15.00','16.00','17.00','18.00','19.00','20.00'];
-
-        // Ambil stylist dari parameter GET
+        // Pastikan format jam di sini sama dengan yang di DB (misal '10:00')
+        $slots = ['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00'];
+        
         $stylist = $this->request->getGet('stylist');
 
         $result = [];
         foreach ($slots as $slot) {
             $result[] = [
                 'time'   => $slot,
-                // Cek apakah stylist tersebut sudah dibooking di jam ini
+                // Panggil Model HANYA dengan stylist dan jam (tanpa tanggal)
+                // Pastikan BookingModel::isBooked() juga sudah diupdate untuk menerima 2 parameter.
                 'booked' => $stylist ? $bookingModel->isBooked($slot, $stylist) : false
             ];
         }
@@ -43,14 +42,12 @@ class BookingController extends BaseController
         return $this->response->setJSON($result);
     }
 
-
     public function save()
     {
         $bookingModel = new BookingModel();
         $detailModel  = new BookingDetailModel();
         
         // 1. Ambil data dari form
-        // Anggap user_id diambil dari session login (Wajib ada tabel user dulu)
         $userId = session()->get('id') ?? 1; // Contoh id=1 jika belum ada login
         
         $stylist = $this->request->getPost('stylist');
@@ -67,7 +64,7 @@ class BookingController extends BaseController
         // 2. Hitung Total Harga di Server (Lebih aman daripada percaya input client)
         $totalPrice = 0;
         foreach ($services as $svc) {
-            // Bersihkan format "Rp 25.000" jadi angka 25000
+            // Bersihkan format "25.000" jadi angka 25000
             $cleanPrice = str_replace(['.', ','], '', $svc['price']); 
             $totalPrice += (int) $cleanPrice;
         }
@@ -77,6 +74,7 @@ class BookingController extends BaseController
             'user_id'     => $userId,
             'stylist'     => $stylist,
             'time'        => $time,
+            'date'        => date('Y-m-d'), // Simpan tanggal saat ini, penting untuk history
             'total_price' => $totalPrice
         ];
         

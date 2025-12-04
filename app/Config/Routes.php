@@ -41,32 +41,30 @@ $routes->group('user', ['filter' => 'role:user'], function($routes){
 $routes->group('admin', ['filter' => 'role:admin'], function ($routes) {
     
     // 1. Dashboard
-    // URL Asli: localhost:8080/admin/dashboard
     $routes->get('dashboard', 'AdminController::index');
 
     // 2. List Booking
-    // URL Asli: localhost:8080/admin/booking_adm
-    // FIX: Jangan tulis '/admin/' lagi di sini, cukup 'booking_adm'
     $routes->get('booking_adm', 'AdminBookingController::index_adm');
 
-    // 3. Update Status
-    // URL Asli: localhost:8080/admin/booking/update/...
-    // FIX: Cukup tulis path lanjutannya saja
+    // 3. Update Status Booking
     $routes->get('booking/update/(:num)/(:segment)', 'AdminBookingController::updateStatus/$1/$2');
 
-    // 4. Menu Lainnya
+    // 4. MANAGEMENT SERVICES (BAGIAN YANG DIPERBAIKI)
+    // =======================================================
+    // Mengarah ke ServiceController::index (Bukan LayoutAdmin)
+    $routes->get('service', 'ServiceController::index'); 
+    
+    // Mengarah ke halaman Edit (Butuh ID / :num)
+    $routes->get('edit_service/(:num)', 'ServiceController::edit/$1');
+    
+    // Proses Update Data (POST)
+    $routes->post('service/update/(:num)', 'ServiceController::update/$1');
+    // =======================================================
+
+    // 5. Menu Lainnya
     $routes->get('profile_adm', 'LayoutAdmin::profile');
-    $routes->get('edit_service', 'ServiceController::edit');
     $routes->get('notif', 'LayoutAdmin::notif');
-    $routes->get('service', 'LayoutAdmin::service');
     
     // Jika dashboard-admin berbeda controller:
     $routes->get('dashboard-admin', 'LayoutAdmin::dashboard_admin');
 });
-
-// =====================
-// CATATAN PENTING:
-// Saya menghapus baris-baris $routes->get(...) liar yang ada di bawah file aslimu 
-// karena itu membuat filter 'role:admin' tidak jalan (security hole).
-// Semua route admin SUDAH saya masukkan ke dalam group di atas.
-// =====================

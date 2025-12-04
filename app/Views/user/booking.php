@@ -43,146 +43,141 @@
       <h3 class="text-base text-lg lg:text-2xl text-[#C59A2D] font-semibold">Silahkan Pilih Service</h3>
     </div>
 
+    <?php 
+        // Helper function untuk format rupiah di view
+        function formatRupiah($angka){
+            return number_format($angka, 0, ',', '.');
+        }
+    ?>
+
+    <!-- SECTION HAIRCUT -->
     <section class="mb-8 lg:mb-12">
       <h4 class="text-center text-[#C59A2D] text-lg lg:text-xl font-semibold mb-6 lg:mb-8">Haircut</h4>
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-        <?php
-          $haircuts = [
-            ['label'=>'Basic','price'=>'25.000'],
-            ['label'=>'Beard','price'=>'25.000'],
-            ['label'=>'Cornrow','price'=>'125.000'],
-            ['label'=>'Gimbal','price'=>'125.000'],
-          ];
-          foreach($haircuts as $h):
-            $cleanName = strtolower(str_replace([' + ', ' '], '_', $h['label']));
-            $img = "gambar_" . $cleanName . ".jpg";
-        ?>
-        <div class="flex flex-col">
-          <div class="relative w-full aspect-square rounded-2xl overflow-hidden bg-gray-200 mb-3">
-            <img src="<?= base_url('img/' . $img) ?>" class="w-full h-full object-cover">
-          </div>
-          <div class="text-center">
-            <div class="text-sm lg:text-base text-gray-800 mb-2"><?= $h['label'] ?></div>
-            <button type="button"
-              class="service-btn inline-block bg-white text-gray-800 text-xs lg:text-sm font-semibold px-4 py-1.5 rounded-lg border border-gray-200 hover-gold transition-all duration-300"
-              onclick="toggleService(this)"
-              data-name="<?= $h['label'] ?>"
-              data-price="<?= $h['price'] ?>"
-              data-image="<?= base_url('img/' . $img) ?>">
-              <?= $h['price'] ?>
-            </button>
-          </div>
-        </div>
+        <?php foreach($services as $s): ?>
+          <?php if($s['category'] == 'Haircut'): ?>
+            <div class="flex flex-col">
+              <div class="relative w-full aspect-square rounded-2xl overflow-hidden bg-gray-200 mb-3">
+                <!-- Logika Gambar: Cek folder uploads dulu, kalau gak ada pake placeholder/default -->
+                <img src="<?= base_url('img/' . $s['image']) ?>" 
+                     class="w-full h-full object-cover"
+                     onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+              </div>
+              <div class="text-center">
+                <div class="text-sm lg:text-base text-gray-800 mb-2"><?= esc($s['service_name']) ?></div>
+                <button type="button"
+                  class="service-btn inline-block bg-white text-gray-800 text-xs lg:text-sm font-semibold px-4 py-1.5 rounded-lg border border-gray-200 hover-gold transition-all duration-300"
+                  onclick="toggleService(this)"
+                  data-name="<?= esc($s['service_name']) ?>"
+                  data-price="<?= number_format($s['price'], 0, ',', '.') ?>"
+                  data-image="<?= base_url('img/' . $s['image']) ?>">
+                  <?= formatRupiah($s['price']) ?>
+                </button>
+              </div>
+            </div>
+          <?php endif; ?>
         <?php endforeach; ?>
       </div>
     </section>
 
+    <!-- SECTION COLORING (Dark Background) -->
     <section class="mb-8 lg:mb-12">
       <div class="bg-[#1A1A1A] rounded-2xl py-8 lg:py-10 px-5 lg:px-8">
         <h4 class="text-center text-white text-lg lg:text-xl font-semibold mb-6 lg:mb-8">Coloring</h4>
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-          <?php
-            $colorings = [
-              ['label'=>'Coloring','price'=>'100.000'],
-              ['label'=>'Bleaching','price'=>'100.000'],
-              ['label'=>'Bleaching + Coloring','price'=>'120.000'],
-              ['label'=>'Bleaching + Buzzcut','price'=>'120.000'],
-            ];
-            foreach($colorings as $c):
-                $cleanName = strtolower(str_replace([' + ', ' '], '_', $c['label']));
-                $img = "gambar_" . $cleanName . ".jpg";
-          ?>
-          <div class="flex flex-col">
-            <div class="relative w-full aspect-square rounded-2xl overflow-hidden bg-gray-200 mb-3">
-              <img src="<?= base_url('img/' . $img) ?>" class="w-full h-full object-cover">
+          <?php foreach($services as $s): ?>
+            <?php if($s['category'] == 'Coloring'): ?>
+            <div class="flex flex-col">
+              <div class="relative w-full aspect-square rounded-2xl overflow-hidden bg-gray-200 mb-3">
+                <img src="<?= base_url('img/' . $s['image']) ?>" 
+                     class="w-full h-full object-cover"
+                     onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+              </div>
+              <div class="text-center">
+                <div class="text-sm lg:text-base text-white mb-2"><?= esc($s['service_name']) ?></div>
+                <button type="button"
+                  class="service-btn inline-block bg-white text-gray-800 text-xs lg:text-sm font-semibold px-4 py-1.5 rounded-lg border border-gray-200 hover-gold transition-all duration-300"
+                  onclick="toggleService(this)"
+                  data-name="<?= esc($s['service_name']) ?>"
+                  data-price="<?= number_format($s['price'], 0, ',', '.') ?>"
+                  data-image="<?= base_url('img/' . $s['image']) ?>">
+                  <?= formatRupiah($s['price']) ?>
+                </button>
+              </div>
             </div>
-            <div class="text-center">
-              <div class="text-sm lg:text-base text-white mb-2"><?= $c['label'] ?></div>
-              <button type="button"
-                class="service-btn inline-block bg-white text-gray-800 text-xs lg:text-sm font-semibold px-4 py-1.5 rounded-lg border border-gray-200 hover-gold transition-all duration-300"
-                onclick="toggleService(this)"
-                data-name="<?= $c['label'] ?>"
-                data-price="<?= $c['price'] ?>"
-                data-image="<?= base_url('img/' . $img) ?>">
-                <?= $c['price'] ?>
-              </button>
-            </div>
-          </div>
+            <?php endif; ?>
           <?php endforeach; ?>
         </div>
       </div>
     </section>
 
+    <!-- SECTION PERMING (Horizontal Card) -->
     <section class="mb-8 lg:mb-12">
       <h4 class="text-center text-[#C59A2D] text-lg lg:text-xl font-semibold mb-6 lg:mb-8">Perming</h4>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
-        <?php
-          $perms = [
-            ['label'=>'Hair Perm','price'=>'100.000'],
-            ['label'=>'Down Perm','price'=>'100.000']
-          ];
-          foreach($perms as $p):
-            $cleanName = strtolower(str_replace([' + ', ' '], '_', $p['label']));
-            $img = "gambar_" . $cleanName . ".jpg";
-        ?>
-        <button type="button"
-          class="service-btn bg-white rounded-2xl overflow-hidden card-shadow flex flex-row items-center p-4 lg:p-5 hover-gold w-full text-left transition-all duration-300"
-          onclick="toggleService(this)"
-          data-name="<?= $p['label'] ?>"
-          data-price="<?= $p['price'] ?>"
-          data-image="<?= base_url('img/' . $img) ?>">
-          <div class="w-28 h-28 lg:w-32 lg:h-32 rounded-xl overflow-hidden bg-gray-200 mr-4 flex-shrink-0">
-            <img src="<?= base_url('img/' . $img) ?>" class="w-full h-full object-cover">
-          </div>
-          <div class="flex flex-col justify-center text-left">
-            <div class="text-base lg:text-lg text-gray-800 mb-2"><?= $p['label'] ?></div>
-            <div class="text-sm lg:text-base font-semibold text-gray-800"><?= $p['price'] ?></div>
-          </div>
-        </button>
+        <?php foreach($services as $s): ?>
+            <?php if($s['category'] == 'Perming'): ?>
+            <button type="button"
+              class="service-btn bg-white rounded-2xl overflow-hidden card-shadow flex flex-row items-center p-4 lg:p-5 hover-gold w-full text-left transition-all duration-300"
+              onclick="toggleService(this)"
+              data-name="<?= esc($s['service_name']) ?>"
+              data-price="<?= number_format($s['price'], 0, ',', '.') ?>"
+              data-image="<?= base_url('img/' . $s['image']) ?>">
+              <div class="w-28 h-28 lg:w-32 lg:h-32 rounded-xl overflow-hidden bg-gray-200 mr-4 flex-shrink-0">
+                <img src="<?= base_url('img/' . $s['image']) ?>" 
+                     class="w-full h-full object-cover"
+                     onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+              </div>
+              <div class="flex flex-col justify-center text-left">
+                <div class="text-base lg:text-lg text-gray-800 mb-2"><?= esc($s['service_name']) ?></div>
+                <div class="text-sm lg:text-base font-semibold text-gray-800"><?= formatRupiah($s['price']) ?></div>
+              </div>
+            </button>
+            <?php endif; ?>
         <?php endforeach; ?>
       </div>
     </section>
 
+    <!-- SECTION TREATMENT (Horizontal Card & Dark BG) -->
     <section class="mb-8 lg:mb-12">
       <div class="bg-[#1A1A1A] rounded-2xl py-8 lg:py-10 px-5 lg:px-8">
         <h4 class="text-center text-white text-lg lg:text-xl font-semibold mb-6 lg:mb-8">Treatment</h4>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
-          <?php
-            $treatments = [
-              ['label'=>'Keratin Treatment','price'=>'100.000'],
-              ['label'=>'Creambath Treatment','price'=>'100.000']
-            ];
-            foreach($treatments as $t):
-               $cleanName = strtolower(str_replace([' + ', ' '], '_', $t['label']));
-               $img = "gambar_" . $cleanName . ".jpg";
-          ?>
-          <button type="button"
-            class="service-btn bg-white rounded-2xl overflow-hidden card-shadow flex flex-row items-center p-4 lg:p-5 hover-gold w-full text-left transition-all duration-300"
-            onclick="toggleService(this)"
-            data-name="<?= $t['label'] ?>"
-            data-price="<?= $t['price'] ?>"
-            data-image="<?= base_url('img/' . $img) ?>">
-            <div class="w-28 h-28 lg:w-32 lg:h-32 rounded-xl overflow-hidden bg-gray-200 mr-4 flex-shrink-0">
-              <img src="<?= base_url('img/' . $img) ?>" class="w-full h-full object-cover">
-            </div>
-            <div class="flex flex-col justify-center text-left">
-              <div class="text-base lg:text-lg text-gray-800 mb-2"><?= $t['label'] ?></div>
-              <div class="text-sm lg:text-base font-semibold text-gray-800"><?= $t['price'] ?></div>
-            </div>
-          </button>
+          <?php foreach($services as $s): ?>
+             <?php if($s['category'] == 'Treatment'): ?>
+              <button type="button"
+                class="service-btn bg-white rounded-2xl overflow-hidden card-shadow flex flex-row items-center p-4 lg:p-5 hover-gold w-full text-left transition-all duration-300"
+                onclick="toggleService(this)"
+                data-name="<?= esc($s['service_name']) ?>"
+                data-price="<?= number_format($s['price'], 0, ',', '.') ?>"
+                data-image="<?= base_url('img/' . $s['image']) ?>">
+                <div class="w-28 h-28 lg:w-32 lg:h-32 rounded-xl overflow-hidden bg-gray-200 mr-4 flex-shrink-0">
+                  <img src="<?= base_url('img/' . $s['image']) ?>" 
+                       class="w-full h-full object-cover"
+                       onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                </div>
+                <div class="flex flex-col justify-center text-left">
+                  <div class="text-base lg:text-lg text-gray-800 mb-2"><?= esc($s['service_name']) ?></div>
+                  <div class="text-sm lg:text-base font-semibold text-gray-800"><?= formatRupiah($s['price']) ?></div>
+                </div>
+              </button>
+             <?php endif; ?>
           <?php endforeach; ?>
         </div>
       </div>
     </section>
 
+    <!-- SECTION STYLIST (Still hardcoded in View unless DB has stylists table) -->
     <section id="stylistSection" class="mb-8 lg:mb-12 scroll-mt-10">
       <div class="bg-[#F3F4F6] rounded-2xl lg:py-10 py-8">
         <h4 class="text-center text-[#C59A2D] text-lg lg:text-xl font-semibold mb-6 lg:mb-8">Stylist</h4>
 
         <div class="flex justify-center gap-6 lg:gap-10">
           <?php
-            $stylists = ['Tisna','Pinnki','Ahnaf'];
-            foreach($stylists as $s):
+            // Idealnya ini juga dari database (tabel 'stylists')
+            // Sementara kita gunakan array $stylists yang dikirim dari controller atau hardcode
+            $stylistList = isset($stylists) ? $stylists : ['Tisna','Pinnki','Ahnaf'];
+            foreach($stylistList as $s):
               $imgStylist = strtolower($s) . ".jpg";
           ?>
           <button type="button"
@@ -191,6 +186,7 @@
             data-label="<?= $s ?>">
             
             <div class="w-24 h-32 lg:w-32 lg:h-40 rounded-2xl bg-gray-200 overflow-hidden mb-3">
+              <!-- Asumsi foto stylist masih di folder img/ public -->
               <img src="<?= base_url('img/' . $imgStylist) ?>" class="w-full h-full object-cover">
             </div>
             <div class="text-sm lg:text-base font-semibold"><?= $s ?></div>
@@ -200,12 +196,17 @@
       </div>
     </section>
 
+    <!-- SECTION TIME -->
     <section id="timeSection" class="mb-6 lg:mb-10 scroll-mt-10">
       <div class="bg-[#1A1A1A] rounded-3xl p-6 lg:p-10">
         <div class="grid grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-4 mb-4 lg:mb-6">
-          <?php foreach($slots as $slot): ?>
+          <?php 
+            // Pastikan $slots dikirim dari controller
+            $timeSlots = isset($slots) ? $slots : ['10:00','11:00','13:00','...']; 
+            foreach($timeSlots as $slot): 
+          ?>
               <?php 
-                  // FIX: Tambah isset() untuk mencegah error jika $stylist belum dipilih
+                  // Cek booked status (Logic tetap sama)
                   $isBooked = (isset($stylist) && $stylist) ? $bookingModel->isBooked($slot, $stylist) : false;
               ?>
               <button type="button"
@@ -226,6 +227,7 @@
     </section>
   </div>
 
+  <!-- BOTTOM BAR (TOTAL) -->
   <div class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 p-4 shadow-[0_-5px_15px_rgba(0,0,0,0.1)] z-50">
       <div class="max-w-4xl mx-auto flex justify-between items-center">
           <div>
@@ -244,21 +246,18 @@
 </main>
 </form>
 
+<!-- JAVASCRIPT LOGIC (Dipertahankan, hanya path URL disesuaikan) -->
 <script>
-    // --- VARIABEL & ELEMEN ---
     let selectedServices = []; 
     const jsonInput = document.getElementById('jsonInput');
-    
     const stylistInput = document.getElementById('selectedStylist');
     const timeInput = document.getElementById('selectedTime');
-    
     const stylistButtons = document.querySelectorAll('.option-btn-2[data-group="stylist"]');
     const timeButtons = document.querySelectorAll('.option-btn-2[data-group="time"]');
 
-    // --- 1. LOGIKA PILIH SERVICE ---
     function toggleService(btn) {
         const name  = btn.dataset.name;
-        const price = btn.dataset.price;
+        const price = btn.dataset.price; // Format 25.000 (titik)
         const image = btn.dataset.image;
 
         const index = selectedServices.findIndex(item => item.name === name);
@@ -272,13 +271,13 @@
             btn.classList.remove('bg-white', 'text-gray-800');
             btn.classList.add('gold-bg', 'text-white', 'border-transparent');
         }
-
         updateCartUI();
     }
 
     function updateCartUI() {
         let total = 0;
         selectedServices.forEach(item => {
+            // Hapus titik ribuan untuk kalkulasi
             let priceNum = parseInt(item.price.replace(/\./g, ''));
             total += priceNum;
         });
@@ -288,22 +287,18 @@
         jsonInput.value = JSON.stringify(selectedServices);
     }
 
-    // --- 2. LOGIKA PILIH STYLIST ---
     stylistButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             stylistButtons.forEach(b => b.classList.remove('gold-bg', 'text-white'));
             btn.classList.add('gold-bg', 'text-white');
-
             stylistInput.value = btn.dataset.label;
             checkAvailability(btn.dataset.label);
-
             setTimeout(() => {
                   document.getElementById('timeSection').scrollIntoView({ behavior: 'smooth', block: 'center' });
             }, 300);
         });
     });
 
-    // --- 3. LOGIKA PILIH JAM ---
     timeButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             if(!stylistInput.value) {
@@ -311,22 +306,18 @@
                 document.getElementById('stylistSection').scrollIntoView({ behavior: 'smooth' });
                 return;
             }
-
             timeButtons.forEach(b => {
                 if(!b.disabled) {
                    b.classList.remove('gold-bg', 'text-white', 'border-transparent');
                    b.classList.add('bg-white', 'text-gray-900', 'border-gray-200');
                 }
             });
-            
             btn.classList.remove('bg-white', 'text-gray-900', 'border-gray-200');
             btn.classList.add('gold-bg', 'text-white', 'border-transparent');
-
             timeInput.value = btn.dataset.label;
         });
     });
 
-    // --- 4. VALIDASI ---
     function validateForm() {
         if (selectedServices.length === 0) {
             alert("Harap pilih minimal satu Service!");
@@ -345,13 +336,9 @@
         return true;
     }
 
-    // --- 5. CEK SLOT AJAX (FIXED URL) ---
     function checkAvailability(stylistName) {
         document.body.style.cursor = 'wait';
-        
-        // BUG FIX DISINI: Menambahkan prefix "user/" dan menggunakan base_url via PHP
         const url = '<?= base_url('user/booking/slots') ?>' + '?stylist=' + stylistName;
-
         fetch(url)
             .then(res => {
                 if (!res.ok) throw new Error("Gagal mengambil data slot");
@@ -361,17 +348,15 @@
                 document.body.style.cursor = 'default';
                 timeButtons.forEach(btn => {
                     const slotData = data.find(s => s.time === btn.dataset.label);
-                    
-                    // Reset kelas dasar
+                    // Reset styling
                     btn.className = "text-xs lg:text-sm px-3 py-2 lg:py-3 rounded-full w-full border option-btn-2 transition-all duration-300 ";
-
+                    
                     if (slotData && slotData.booked) {
                         btn.classList.add("booked-slot");
                         btn.disabled = true;
-                        // Jika slot yang dipilih ternyata sudah dibooking orang lain saat refresh
                         if (timeInput.value === btn.dataset.label) {
                             timeInput.value = ""; 
-                            alert("Maaf, slot jam " + btn.dataset.label + " baru saja diambil orang lain.");
+                            alert("Maaf, slot jam " + btn.dataset.label + " baru saja diambil.");
                         }
                     } else {
                         btn.disabled = false;
@@ -389,11 +374,10 @@
             });
     }
 
-    // Auto Refresh setiap 5 detik
+    // Auto Refresh
     setInterval(() => {
         if(stylistInput.value) checkAvailability(stylistInput.value);
     }, 5000);
-
 </script>
 
 <?= $this->include('layout_user/footer') ?>
