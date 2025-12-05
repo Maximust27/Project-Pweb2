@@ -29,7 +29,7 @@
         </div>
 
         <div class="flex justify-end gap-2">
-            <a href="<?= base_url('admin/pages/service') ?>" class="px-4 py-2 bg-gray-400 text-white rounded hover:bg-gray-500">Batal</a>
+            <a href="<?= base_url('admin/service') ?>" class="px-4 py-2 bg-gray-400 text-white rounded hover:bg-gray-500">Batal</a>
             <button type="submit" class="px-4 py-2 bg-blue-700 text-white rounded hover:bg-blue-800"><?= isset($service) ? 'Update' : 'Simpan' ?></button>
         </div>
     </form>
