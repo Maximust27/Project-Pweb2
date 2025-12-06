@@ -62,7 +62,7 @@ $routes->group('admin', ['filter' => 'role:admin'], function ($routes) {
     // =======================================================
 
     // 5. Menu Lainnya
-    $routes->get('profile_adm', 'LayoutAdmin::profile');
+    $routes->get('profile_adm', 'LayoutAdmin::profile_adm');
     $routes->get('notif', 'LayoutAdmin::notif');
     
     // Jika dashboard-admin berbeda controller:

@@ -13,7 +13,7 @@ class LayoutAdmin extends BaseController
         return view('layout_admin/sidebar');
     }
 
-    public function index()
+    public function profile_adm()
     {
         $adminModel = new AdminModel();
         $skillModel = new SkillModel();
@@ -51,6 +51,7 @@ class LayoutAdmin extends BaseController
                 ]
             ]
         ])) {
+            // Redirect juga harus ke profile_adm
             return redirect()->to('/admin/profile_adm')->withInput();
         }
 
@@ -90,6 +91,7 @@ class LayoutAdmin extends BaseController
         }
 
         session()->setFlashdata('success', 'Profile berhasil diupdate');
+        // Redirect ke method yang benar
         return redirect()->to('/admin/profile_adm');
     }
 
@@ -117,9 +119,8 @@ class LayoutAdmin extends BaseController
     {
         $bookingModel = new BookingModel();
 
-        // Dashboard juga sebaiknya di-join jika ingin menampilkan nama client di tabel dashboard
         $recentBookings = $bookingModel
-            ->select('bookings.*, users.username as client_name') // Opsional: Tambahkan ini agar dashboard juga ada namanya
+            ->select('bookings.*, users.username as client_name')
             ->join('users', 'users.id = bookings.user_id')
             ->orderBy('bookings.created_at', 'DESC')
             ->findAll(5);
