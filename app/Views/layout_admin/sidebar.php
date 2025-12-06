@@ -86,7 +86,7 @@
                 </a>
 
                 <!-- Notification -->
-                <a href="#"
+                <a href="/admin/notif"
                    class="flex items-center gap-3 px-4 py-2 rounded-md bg-[#1A1A1A] hover:bg-[#D4AF37] transition text-white">
                     <span class="w-5 h-5">
                         <svg width="24" viewBox="0 0 512 512" fill="#fff">
@@ -105,7 +105,7 @@
                 </a>
 
                 <!-- Profile -->
-                <a href="#"
+                <a href="/admin/profile_adm"
                    class="flex items-center gap-3 px-4 py-2 rounded-md bg-[#1A1A1A] hover:bg-[#D4AF37] transition text-white">
                     <span class="w-5 h-5">
                         <svg viewBox="0 0 24 24" width="26" fill="#e9e2e2">

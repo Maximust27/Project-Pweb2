@@ -1,39 +1,51 @@
 <?= $this->extend('layout_admin/sidebar') ?>
+
 <?= $this->section('page_title') ?>
-NOTIFIKASI
+Notifikasi
 <?= $this->endSection() ?>
+
 <?= $this->section('content') ?>
 
-<div class="bg-white p-6 shadow rounded-lg">
-    <h1 class="text-2xl font-bold text-gray-800 mb-4">Pesanan Baru</h1>
-    <hr class="mb-4">
+<div class="bg-white p-6 shadow rounded-lg max-w-5xl mx-auto mt-6">
+    <div class="mb-6">
+        <h1 class="text-2xl font-serif text-gray-800">Pesanan Baru</h1>
+    </div>
 
-    <div class="space-y-3">
+    <!-- Container List -->
+    <div class="flex flex-col">
+        <?php if (!empty($recentBookings) && is_array($recentBookings)) : ?>
+            <?php foreach ($recentBookings as $booking) : ?>
+                <!-- Item Notifikasi: Zebra Striping (Ganjil: Abu, Genap: Putih) -->
+                <div class="flex items-center justify-between px-6 py-4 odd:bg-gray-200 even:bg-white transition hover:bg-gray-100">
+                    
+                    <div class="flex items-center gap-4">
+                        <!-- Icon User (Warna Emas/Coklat) -->
+                        <div class="text-[#B8860B]">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
+                                <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
 
-        <!-- ITEM 1 -->
-        <div class="flex items-center space-x-4 px-4 py-3 rounded-md odd:bg-gray-200 even:bg-white odd:border-0 even:border border-gray-300">
-            <svg width="45" height="45" viewBox="0 0 174 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M48.3231 39.9055C48.3231 29.3219 52.396 19.1718 59.6459 11.6881C66.8958 4.20432 76.7287 0 86.9816 0C97.2344 0 107.067 4.20432 114.317 11.6881C121.567 19.1718 125.64 29.3219 125.64 39.9055C125.64 50.4891 121.567 60.6393 114.317 68.123C107.067 75.6067 97.2344 79.811 86.9816 79.811C76.7287 79.811 66.8958 75.6067 59.6459 68.123C52.396 60.6393 48.3231 50.4891 48.3231 39.9055ZM48.3231 99.7638C35.507 99.7638 23.2158 105.019 14.1535 114.374C5.09117 123.729 0 136.416 0 149.646C0 157.583 3.0547 165.196 8.4921 170.809C13.9295 176.422 21.3042 179.575 28.9939 179.575H144.969C152.659 179.575 160.034 176.422 165.471 170.809C170.908 165.196 173.963 157.583 173.963 149.646C173.963 136.416 168.872 123.729 159.81 114.374C150.747 105.019 138.456 99.7638 125.64 99.7638H48.3231Z"
-                    fill="#B8860B" />
-            </svg>
-            <p class="text-gray-700 font-medium">
-                Rocky Gerung memesan hair cut ke anda
-            </p>
-        </div>
+                        <!-- Text Content Satu Baris -->
+                        <p class="text-gray-900 text-lg">
+                            <?= esc($booking['client_name'] ?? $booking['name'] ?? 'Pelanggan') ?> memesan <?= esc($booking['service'] ?? 'Layanan') ?> ke anda
+                        </p>
+                    </div>
+                    
+                    <!-- Badge Notification (Merah) -->
+                    <div class="flex-shrink-0 ml-4">
+                        <span class="flex items-center justify-center w-8 h-8 bg-[#B91C1C] text-white font-medium rounded-full shadow-sm">
+                            1
+                        </span>
+                    </div>
 
-        <!-- ITEM 2 -->
-        <div class="flex items-center space-x-4 px-4 py-3 rounded-md odd:bg-gray-200 even:bg-white odd:border-0 even:border border-gray-300">
-            <svg width="45" height="45" viewBox="0 0 174 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M48.3231 39.9055C48.3231 29.3219 52.396 19.1718 59.6459 11.6881C66.8958 4.20432 76.7287 0 86.9816 0C97.2344 0 107.067 4.20432 114.317 11.6881C121.567 19.1718 125.64 29.3219 125.64 39.9055C125.64 50.4891 121.567 60.6393 114.317 68.123C107.067 75.6067 97.2344 79.811 86.9816 79.811C76.7287 79.811 66.8958 75.6067 59.6459 68.123C52.396 60.6393 48.3231 50.4891 48.3231 39.9055ZM48.3231 99.7638C35.507 99.7638 23.2158 105.019 14.1535 114.374C5.09117 123.729 0 136.416 0 149.646C0 157.583 3.0547 165.196 8.4921 170.809C13.9295 176.422 21.3042 179.575 28.9939 179.575H144.969C152.659 179.575 160.034 176.422 165.471 170.809C170.908 165.196 173.963 157.583 173.963 149.646C173.963 136.416 168.872 123.729 159.81 114.374C150.747 105.019 138.456 99.7638 125.64 99.7638H48.3231Z"
-                    fill="#B8860B" />
-            </svg>
-            <p class="text-gray-700 font-medium">
-                Rocky Gerung memesan hair cut ke anda
-            </p>
-        </div>
-
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <div class="text-center py-10 bg-gray-50">
+                <p class="text-gray-500 text-lg">Belum ada pesanan baru.</p>
+            </div>
+        <?php endif; ?>
     </div>
 </div>
 
