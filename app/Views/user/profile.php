@@ -34,7 +34,8 @@
 
       <!-- Foto profil -->
       <div class="relative w-64 h-64 rounded-full overflow-hidden bg-gray-800 flex items-center justify-center mr-16">
-        <img id="previewImage" src="" alt="Profile"
+        <!-- Tambahkan logika fallback gambar jika user tidak punya foto atau $user null -->
+        <img id="previewImage" src="<?= isset($user['photo']) ? base_url('uploads/' . $user['photo']) : '' ?>" alt="Profile"
              class="w-full h-full object-cover rounded-full transition-all duration-300">
 
         <!-- Tombol tambah foto -->
@@ -48,9 +49,10 @@
       <!-- Info profil -->
       <div class="text-left">
         <div class="space-y-2 text-xl">
-          <div><span class="font-semibold">Nama:</span>  <?= $user['name'] ?></div>
-          <div><span class="font-semibold">Email:</span> <?= $user['email'] ?></div>
-          <div><span class="font-semibold">Telpon Number:</span>  <?= $user['telephone'] ?></div>
+          <!-- FIX: Gunakan '??' untuk mencegah error jika data $user kosong -->
+          <div><span class="font-semibold">Nama:</span>  <?= esc($user['name'] ?? '-') ?></div>
+          <div><span class="font-semibold">Email:</span> <?= esc($user['email'] ?? '-') ?></div>
+          <div><span class="font-semibold">Telpon Number:</span>  <?= esc($user['telephone'] ?? '-') ?></div>
         </div>
       </div>
     </div>
@@ -72,7 +74,7 @@
             </tr>
           </thead>
           <tbody>
-            
+            <!-- Loop data pesanan di sini nanti -->
           </tbody>
         </table>
       </div>
@@ -95,7 +97,7 @@
             </tr>
           </thead>
           <tbody>
-            
+            <!-- Loop riwayat di sini nanti -->
           </tbody>
         </table>
       </div>
