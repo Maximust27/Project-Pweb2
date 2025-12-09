@@ -15,26 +15,26 @@ class CreateAdminsTable extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'name' => [ // Nama Panggilan (contoh: Rocky)
+            'name' => [ 
                 'type'       => 'VARCHAR',
                 'constraint' => 100,
                 'null'       => true,
             ],
-            'full_name' => [ // Nama Lengkap (contoh: Rocky Gerung)
+            'full_name' => [ 
                 'type'       => 'VARCHAR',
                 'constraint' => 255,
                 'null'       => true,
             ],
-            'role' => [ // Jabatan kecil di bawah foto (contoh: Master Of Hair cut)
+            'role' => [ 
                 'type'       => 'VARCHAR',
                 'constraint' => 100,
                 'null'       => true,
             ],
-            'description' => [ // Deskripsi paragraf
+            'description' => [
                 'type' => 'TEXT',
                 'null' => true,
             ],
-            'skill_title' => [ // Judul di atas list skill (contoh: Master Of Hair cut)
+            'skill_title' => [ 
                 'type'       => 'VARCHAR',
                 'constraint' => 255,
                 'null'       => true,
@@ -57,7 +57,6 @@ class CreateAdminsTable extends Migration
         $this->forge->addKey('id', true);
         $this->forge->createTable('admins');
         
-        // Insert 3 data dummy
         $data = [
             [
                 'name' => 'Tisna',
@@ -85,7 +84,6 @@ class CreateAdminsTable extends Migration
             ]
         ];
 
-        // Menggunakan insertBatch untuk memasukkan banyak data sekaligus
         $this->db->table('admins')->insertBatch($data);
     }
 

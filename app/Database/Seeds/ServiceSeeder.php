@@ -115,7 +115,6 @@ class ServiceSeeder extends Seeder
             ],
         ];
 
-        // Menggunakan insertBatch untuk memasukkan banyak data sekaligus
         $this->db->table('services')->insertBatch($data);
     }
 }

@@ -122,7 +122,7 @@
         <!-- Logout -->
         <div class="p-3 border-t border-gray-700">
             <div class="bg-[#1A1A1A] rounded-md">
-                <a href="#" class="sidebar-btn flex items-center gap-3 px-4 py-2 rounded-md w-full">
+                <a href="<?= base_url('logout') ?>" class="sidebar-btn flex items-center gap-3 px-4 py-2 rounded-md w-full">
                     <span>↩️</span> Logout
                 </a>
             </div>

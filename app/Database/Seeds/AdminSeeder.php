@@ -17,12 +17,6 @@ class AdminSeeder extends Seeder
             'skill_title' => 'Master Of Hair cut',
         ];
 
-        // insert data
         $this->db->table('admin')->insert($data);
     }
 }
-
-
-//(kalo mau jalanin)
-//php spark migrate
-//php spark db:seed AdminSeeder 

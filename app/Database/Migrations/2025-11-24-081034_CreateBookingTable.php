@@ -16,7 +16,7 @@ class CreateBookingTables extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'user_id' => [ // Relasi ke tabel users
+            'user_id' => [
                 'type'       => 'INT',
                 'constraint' => 11,
                 'unsigned'   => true,
@@ -29,7 +29,7 @@ class CreateBookingTables extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '10',
             ],
-            'total_price' => [ // Untuk menyimpan total belanja
+            'total_price' => [
                 'type'       => 'DECIMAL',
                 'constraint' => '10,0', // Bisa menampung angka jutaan
                 'default'    => 0
@@ -45,7 +45,6 @@ class CreateBookingTables extends Migration
         $this->forge->addKey('id', true);
         $this->forge->createTable('bookings');
 
-        // 2. Tabel booking_details (Untuk Rincian Service yg dipilih)
         $this->forge->addField([
             'id' => [
                 'type'           => 'INT',

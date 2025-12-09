@@ -155,4 +155,12 @@ class LayoutAdmin extends BaseController
 
         return view('admin/dashboard-admin', $data);
     }
+
+    // Logout
+    public function logout()
+    {
+        $session = session();
+        $session->destroy(); 
+        return redirect()->to('/');
+    }
 }

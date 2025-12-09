@@ -30,7 +30,3 @@ class SkillsSeeder extends Seeder
     }
 }
 
-
-///(kalo mau jalanin)
-// php spark migrate
-// php spark db:seed SkillsSeeder 

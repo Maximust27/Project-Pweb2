@@ -44,12 +44,18 @@ class BookingController extends BaseController
 
     public function save()
     {
+        // 1. AMBIL USER ID DARI SESSION
+        // PERBAIKAN: Menggunakan 'user_id' sesuai dengan controller Login.php Anda
+        $userId = session()->get('user_id'); 
+
+        // Cek jika session habis/user belum login
+        if (empty($userId)) {
+            return redirect()->to('/login')->with('error', 'Sesi habis atau belum login. Silakan login ulang.');
+        }
+
         $bookingModel = new BookingModel();
         $detailModel  = new BookingDetailModel();
-        
-        // 1. Ambil data dari form
-        $userId = session()->get('id') ?? 1; // Contoh id=1 jika belum ada login
-        
+    
         $stylist = $this->request->getPost('stylist');
         $time    = $this->request->getPost('time');
         
@@ -71,7 +77,7 @@ class BookingController extends BaseController
 
         // 3. Simpan ke Tabel bookings (PARENT)
         $bookingData = [
-            'user_id'     => $userId,
+            'user_id'     => $userId, // Sekarang variabel ini sudah benar terisi ID user
             'stylist'     => $stylist,
             'time'        => $time,
             'date'        => date('Y-m-d'), // Simpan tanggal saat ini, penting untuk history

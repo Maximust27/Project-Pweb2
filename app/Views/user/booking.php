@@ -257,7 +257,7 @@
 
     function toggleService(btn) {
         const name  = btn.dataset.name;
-        const price = btn.dataset.price; // Format 25.000 (titik)
+        const price = btn.dataset.price; 
         const image = btn.dataset.image;
 
         const index = selectedServices.findIndex(item => item.name === name);

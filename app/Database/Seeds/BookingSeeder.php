@@ -31,8 +31,6 @@ class BookingSeeder extends Seeder
             ],
         ];
 
-        // Insert data ke tabel booking
-        // Menggunakan insertBatch untuk memasukkan banyak data sekaligus
         $this->db->table('booking')->insertBatch($data);
     }
 }

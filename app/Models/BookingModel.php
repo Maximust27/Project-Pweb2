@@ -9,7 +9,6 @@ class BookingModel extends Model
     protected $allowedFields = ['user_id', 'stylist', 'time', 'total_price', 'status'];
     protected $useTimestamps = true;
 
-    // Fungsi cek slot tetap sama
     public function isBooked($time, $stylist)
     {
         return $this->where('time', $time)

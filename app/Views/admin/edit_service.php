@@ -57,7 +57,7 @@ Edit Service - <?= esc($service['service_name']) ?>
                 <div class="flex flex-col items-center">
                     <div class="w-64 h-64 rounded-xl overflow-hidden shadow-lg mb-4 bg-gray-200">
                         <?php 
-                            $foto = $service['image'] ? base_url('uploads/' . $service['image']) : 'https://via.placeholder.com/300?text=No+Image'; 
+                            $foto = $service['image'] ? base_url('img/' . $service['image']) : 'https://via.placeholder.com/300?text=No+Image'; 
                         ?>
                         <img id="previewImage" src="<?= $foto ?>" class="w-full h-full object-cover">
                     </div>
@@ -105,7 +105,7 @@ Edit Service - <?= esc($service['service_name']) ?>
 </div>
 
 <script>
-    // Image preview script
+    // Image preview 
     document.getElementById("imageInput").addEventListener("change", function (e) {
         const file = e.target.files[0];
         if (file) {

@@ -9,7 +9,6 @@ class CreateServicesTable extends Migration
 {
     public function up()
     {
-        // Hapus tabel lama jika ada agar bersih (optional, hati-hati jika data production)
         $this->forge->dropTable('services', true);
 
         $this->forge->addField([
@@ -51,9 +50,8 @@ class CreateServicesTable extends Migration
         $this->forge->addKey('id', true);
         $this->forge->createTable('services');
 
-        // Data Dummy
         $data = [
-            // --- HAIRCUT ---
+            // HAIRCUT 
             [
                 'service_name' => 'Basic Haircut',
                 'category'     => 'Haircut',
@@ -87,7 +85,7 @@ class CreateServicesTable extends Migration
                 'updated_at'   => Time::now(),
             ],
 
-            // --- COLORING ---
+            // COLORING 
             [
                 'service_name' => 'Basic Coloring',
                 'category'     => 'Coloring',
@@ -121,7 +119,7 @@ class CreateServicesTable extends Migration
                 'updated_at'   => Time::now(),
             ],
 
-            // --- PERMING ---
+            // PERMING 
             [
                 'service_name' => 'Hair Perm',
                 'category'     => 'Perming',
@@ -139,7 +137,7 @@ class CreateServicesTable extends Migration
                 'updated_at'   => Time::now(),
             ],
 
-            // --- TREATMENT ---
+            // TREATMENT 
             [
                 'service_name' => 'Keratin Treatment',
                 'category'     => 'Treatment',
@@ -158,7 +156,6 @@ class CreateServicesTable extends Migration
             ],
         ];
 
-        // Insert Batch
         $this->db->table('services')->insertBatch($data);
     }
 

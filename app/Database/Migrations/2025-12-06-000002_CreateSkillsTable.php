@@ -20,15 +20,14 @@ class CreateSkillsTable extends Migration
                 'constraint' => 11,
                 'unsigned'   => true,
             ],
-            'skill_name' => [ // Nama skill (contoh: Hair cut)
+            'skill_name' => [
                 'type'       => 'VARCHAR',
                 'constraint' => 255,
             ],
         ]);
 
         $this->forge->addKey('id', true);
-        
-        // Foreign Key ke tabel admins
+
         $this->forge->addForeignKey('admin_id', 'admins', 'id', 'CASCADE', 'CASCADE');
 
         $this->forge->createTable('skills');
