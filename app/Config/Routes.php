@@ -39,6 +39,11 @@ $routes->group('admin', ['filter' => 'role:admin'], function ($routes) {
     $routes->get('dashboard', 'AdminController::index');
     $routes->get('dashboard-admin', 'LayoutAdmin::dashboard_admin');
     $routes->get('profile_adm', 'LayoutAdmin::profile_adm');
+    
+
+    $routes->post('updateProfile', 'LayoutAdmin::updateProfile'); 
+
+
     $routes->get('notif', 'LayoutAdmin::notif');
 
     //Manajemen Booking

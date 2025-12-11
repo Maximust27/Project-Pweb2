@@ -55,7 +55,7 @@ class ServiceController extends BaseController
         // Upload Gambar
         $imageFile = $this->request->getFile('image');
         $imageName = $imageFile->getRandomName();
-        $imageFile->move('uploads', $imageName);
+        $imageFile->move('img', $imageName);
 
         // Simpan DB
         $this->serviceModel->save([
@@ -116,8 +116,8 @@ class ServiceController extends BaseController
             $imageFile->move('uploads', $imageName);
             
             // Hapus gambar lama
-            if ($service['image'] && file_exists('uploads/' . $service['image'])) {
-                unlink('uploads/' . $service['image']);
+            if ($service['image'] && file_exists('img/' . $service['image'])) {
+                unlink('img/' . $service['image']);
             }
         }
 
@@ -139,8 +139,8 @@ class ServiceController extends BaseController
 
         if ($service) {
             // Hapus gambar
-            if ($service['image'] && file_exists('uploads/' . $service['image'])) {
-                unlink('uploads/' . $service['image']);
+            if ($service['image'] && file_exists('img/' . $service['image'])) {
+                unlink('img/' . $service['image']);
             }
 
             $this->serviceModel->delete($id);
