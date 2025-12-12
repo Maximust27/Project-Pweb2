@@ -158,7 +158,7 @@
                             </defs>
                         </svg>
                     </a>
-                    
+
                     <?php if (isset($notif_count) && $notif_count > 0) : ?>
                         <span class="absolute -top-1 -right-2 bg-red-500 text-white text-[10px] font-bold rounded-full h-5 w-5 flex items-center justify-center border-2 border-white">
                             <?= $notif_count > 99 ? '99+' : $notif_count ?>
@@ -168,9 +168,15 @@
 
                 <!-- Profile -->
                 <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 bg-gray-800 rounded-full"></div>
-                    <span class="text-gray-800">Nama Admin</span>
-                    <span class="text-gray-500">▾</span>
+                    <!-- Cek apakah ada foto -->
+                    <div class="w-8 h-8 rounded-full overflow-hidden bg-gray-800">
+                        <img src="/img/<?= $admin['photo'] ?? 'default.jpg' ?>" alt="Admin" class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Panggil Nama Admin -->
+                    <span class="text-gray-800 font-medium">
+                        <?= $admin['name'] ?? 'Admin' ?>
+                    </span>
                 </div>
             </div>
         </header>

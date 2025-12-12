@@ -33,8 +33,8 @@ Profile
             <!-- Lingkaran Foto -->
             <div class="relative group cursor-pointer" onclick="openEditModal()">
                 <div class="w-64 h-64 bg-gray-200 rounded-full overflow-hidden border-4 border-transparent group-hover:border-[#B8860B] transition-all duration-300 shadow-sm flex items-center justify-center">
-                    <?php if(!empty($admin['photo']) && file_exists('uploads/' . $admin['photo'])): ?>
-                        <img src="<?= base_url('uploads/' . $admin['photo']) ?>" class="w-full h-full object-cover">
+                    <?php if(!empty($admin['photo']) && file_exists('img/' . $admin['photo'])): ?>
+                        <img src="<?= base_url('img/' . $admin['photo']) ?>" class="w-full h-full object-cover">
                     <?php else: ?>
                         <!-- Placeholder Icon jika tidak ada foto (Mirip gambar referensi) -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-gray-400" viewBox="0 0 20 20" fill="currentColor">

@@ -5,10 +5,13 @@ namespace App\Controllers;
 use App\Models\AdminModel;
 use App\Models\SkillModel;
 use App\Models\BookingModel;
+// Pastikan Model Service di-use jika ada, contoh: use App\Models\ServiceModel;
 
 class LayoutAdmin extends BaseController
 {
-    // Helper function untuk menghitung notifikasi (pending bookings)
+    // --- HELPER FUNCTIONS ---
+
+    // 1. Menghitung notifikasi (pending bookings)
     private function getPendingCount()
     {
         $bookingModel = new BookingModel();
@@ -18,26 +21,120 @@ class LayoutAdmin extends BaseController
             ->groupEnd()
             ->countAllResults();
     }
-    
-    public function sidebar()
+
+    // 2. Mengambil data Admin yang sedang login
+    private function getCurrentAdmin()
     {
-        return view('layout_admin/sidebar');
+        $adminModel = new AdminModel();
+        // Ambil ID dari session, default ke 1 jika belum login (untuk dev)
+        $idAdmin = session()->get('id') ?? 1; 
+        return $adminModel->where('id', $idAdmin)->first();
+    }
+    
+    // --- CONTROLLER METHODS ---
+
+    public function dashboard_admin()
+    {
+        $bookingModel = new BookingModel();
+
+        $recentBookings = $bookingModel
+            ->select('bookings.*, users.name as client_name')
+            ->join('users', 'users.id = bookings.user_id')
+            ->orderBy('bookings.created_at', 'DESC')
+            ->findAll(5);
+
+        $totalClients = $bookingModel->countAllResults();
+        $totalService = $bookingModel->distinct()->select('stylist')->countAllResults();
+
+        $data = [
+            'activeMenu'     => 'dashboard',
+            'recentBookings' => $recentBookings,
+            'totalClients'   => $totalClients,
+            'totalService'   => $totalService,
+            'notif_count'    => $this->getPendingCount(),
+            'admin'          => $this->getCurrentAdmin() // Kirim data admin ke View
+        ];
+
+        return view('admin/dashboard-admin', $data);
+    }
+
+    public function booking_adm()
+    {
+        $bookingModel = new BookingModel();
+
+        $allBookings = $bookingModel
+            ->select('bookings.*, users.name as client_name')
+            ->join('users', 'users.id = bookings.user_id', 'left')
+            ->orderBy('bookings.date', 'DESC')
+            ->findAll();
+
+        $data = [
+            'activeMenu'  => 'bookings',
+            'bookings'    => $allBookings,
+            'notif_count' => $this->getPendingCount(),
+            'admin'       => $this->getCurrentAdmin() // Kirim data admin ke View
+        ];
+
+        return view('admin/booking_adm', $data);
+    }
+
+    public function service()
+    {
+        // $serviceModel = new ServiceModel();
+        // $services = $serviceModel->findAll();
+
+        $data = [
+            'activeMenu'  => 'services',
+            'services'    => [], // Ganti dengan data asli
+            'notif_count' => $this->getPendingCount(),
+            'admin'       => $this->getCurrentAdmin() // Kirim data admin ke View
+        ];
+
+        return view('admin/service', $data);
+    }
+
+    public function notif()
+    {
+        $bookingModel = new BookingModel();
+        
+        $newBookings = $bookingModel
+            ->select('bookings.*, users.name') 
+            ->join('users', 'users.id = bookings.user_id', 'left') 
+            ->groupStart()
+                ->where('bookings.status', 'pending')
+                ->orWhere('bookings.status', null)
+            ->groupEnd()
+            ->orderBy('bookings.id', 'DESC')
+            ->findAll(10);
+
+        foreach ($newBookings as &$booking) {
+            if (!empty($booking['name'])) {
+                $booking['client_name'] = $booking['name'];
+            } else {
+                $booking['client_name'] = 'Pelanggan (Tanpa Nama)';
+            }
+        }
+
+        return view('admin/notif', [
+            'recentBookings' => $newBookings,
+            'activeMenu'     => 'notif',
+            'notif_count'    => $this->getPendingCount(),
+            'admin'          => $this->getCurrentAdmin() // Kirim data admin ke View
+        ]);
     }
 
     public function profile_adm()
     {
-        $adminModel = new AdminModel();
         $skillModel = new SkillModel();
-
-        // Gunakan session ID user yang sedang login, fallback ke 1 jika null (untuk dev)
-        $idAdmin = session()->get('id') ?? 1;
-
-        $data['admin'] = $adminModel->where('id', $idAdmin)->first();
-        $data['skills'] = $skillModel->where('admin_id', $idAdmin)->findAll();
-        $data['activeMenu'] = 'profile';
         
-        // --- PENTING: Kirim data notif ke view ---
-        $data['notif_count'] = $this->getPendingCount(); 
+        // Ambil data admin pakai helper biar konsisten
+        $adminData = $this->getCurrentAdmin();
+        $idAdmin   = $adminData['id'] ?? 1;
+
+        $data['admin']      = $adminData;
+        $data['skills']     = $skillModel->where('admin_id', $idAdmin)->findAll();
+        $data['activeMenu'] = 'profile';
+        $data['notif_count'] = $this->getPendingCount();
 
         return view('admin/profile_adm', $data);
     }
@@ -49,7 +146,6 @@ class LayoutAdmin extends BaseController
 
         $idAdmin = session()->get('id') ?? 1;
 
-        // Validasi input
         if (!$this->validate([
             'name' => [
                 'rules' => 'required',
@@ -67,7 +163,6 @@ class LayoutAdmin extends BaseController
             return redirect()->to('/admin/profile_adm')->withInput();
         }
 
-        // Handle upload foto
         $filePhoto = $this->request->getFile('photo');
         if ($filePhoto->getError() == 4) {
             $namaPhoto = $this->request->getVar('photoLama'); 
@@ -76,7 +171,6 @@ class LayoutAdmin extends BaseController
             $filePhoto->move('uploads', $namaPhoto);
         }
 
-        // Update admin
         $adminModel->save([
             'id'          => $idAdmin,
             'name'        => $this->request->getVar('name'),
@@ -86,13 +180,9 @@ class LayoutAdmin extends BaseController
             'photo'       => $namaPhoto
         ]);
 
-        // Update skills
         $skillsInput = $this->request->getPost('skills') ?? [];
-
-        // Hapus skill lama
         $skillModel->where('admin_id', $idAdmin)->delete();
 
-        // Insert skill baru
         foreach ($skillsInput as $skillName) {
             if (!empty(trim($skillName))) {
                 $skillModel->insert([
@@ -106,64 +196,11 @@ class LayoutAdmin extends BaseController
         return redirect()->to('/admin/profile_adm');
     }
 
-    public function notif()
+    public function sidebar()
     {
-        $bookingModel = new BookingModel();
-        
-        // PERBAIKAN: Hapus 'users.username' agar tidak error
-        $newBookings = $bookingModel
-            ->select('bookings.*, users.name') 
-            ->join('users', 'users.id = bookings.user_id', 'left') 
-            ->groupStart()
-                ->where('bookings.status', 'pending')
-                ->orWhere('bookings.status', null)
-            ->groupEnd()
-            ->orderBy('bookings.id', 'DESC')
-            ->findAll(10);
-
-        foreach ($newBookings as &$booking) {
-            // Logic disederhanakan: Jika ada nama gunakan nama, jika tidak gunakan fallback
-            if (!empty($booking['name'])) {
-                $booking['client_name'] = $booking['name'];
-            } else {
-                $booking['client_name'] = 'Pelanggan (Tanpa Nama)';
-            }
-        }
-
-        return view('admin/notif', [
-            'recentBookings' => $newBookings,
-            'activeMenu' => 'notif',
-            'notif_count' => $this->getPendingCount()
-        ]);
+        return view('layout_admin/sidebar');
     }
 
-    public function dashboard_admin()
-    {
-        $bookingModel = new BookingModel();
-
-        // PERBAIKAN: Ganti 'users.username' dengan 'users.name'
-        $recentBookings = $bookingModel
-            ->select('bookings.*, users.name as client_name')
-            ->join('users', 'users.id = bookings.user_id')
-            ->orderBy('bookings.created_at', 'DESC')
-            ->findAll(5);
-
-        $totalClients = $bookingModel->countAllResults();
-        $totalService = $bookingModel->distinct()->select('stylist')->countAllResults();
-
-        $data = [
-            'activeMenu' => 'dashboard',
-            'recentBookings' => $recentBookings,
-            'totalClients' => $totalClients,
-            'totalService' => $totalService,
-            // --- PENTING: Kirim data notif ke view ---
-            'notif_count' => $this->getPendingCount()
-        ];
-
-        return view('admin/dashboard-admin', $data);
-    }
-
-    // Logout
     public function logout()
     {
         $session = session();
