@@ -8,6 +8,17 @@ use App\Models\BookingModel;
 
 class LayoutAdmin extends BaseController
 {
+    // Helper function untuk menghitung notifikasi (pending bookings)
+    private function getPendingCount()
+    {
+        $bookingModel = new BookingModel();
+        return $bookingModel->groupStart()
+            ->where('status', 'pending')
+            ->orWhere('status', null)
+            ->groupEnd()
+            ->countAllResults();
+    }
+    
     public function sidebar()
     {
         return view('layout_admin/sidebar');
@@ -18,13 +29,15 @@ class LayoutAdmin extends BaseController
         $adminModel = new AdminModel();
         $skillModel = new SkillModel();
 
-        // Ambil admin dengan id = 1 (Gunakan session jika sudah login)
-        $data['admin'] = $adminModel->where('id', 1)->first();
+        // Gunakan session ID user yang sedang login, fallback ke 1 jika null (untuk dev)
+        $idAdmin = session()->get('id') ?? 1;
 
-        // Ambil semua skill admin
-        $data['skills'] = $skillModel->where('admin_id', $data['admin']['id'] ?? 0)->findAll();
-
+        $data['admin'] = $adminModel->where('id', $idAdmin)->first();
+        $data['skills'] = $skillModel->where('admin_id', $idAdmin)->findAll();
         $data['activeMenu'] = 'profile';
+        
+        // --- PENTING: Kirim data notif ke view ---
+        $data['notif_count'] = $this->getPendingCount(); 
 
         return view('admin/profile_adm', $data);
     }
@@ -34,7 +47,7 @@ class LayoutAdmin extends BaseController
         $adminModel = new AdminModel();
         $skillModel = new SkillModel();
 
-        $idAdmin = 1; // Harusnya ambil dari session()->get('id')
+        $idAdmin = session()->get('id') ?? 1;
 
         // Validasi input
         if (!$this->validate([
@@ -51,14 +64,13 @@ class LayoutAdmin extends BaseController
                 ]
             ]
         ])) {
-            // Redirect juga harus ke profile_adm
             return redirect()->to('/admin/profile_adm')->withInput();
         }
 
         // Handle upload foto
         $filePhoto = $this->request->getFile('photo');
         if ($filePhoto->getError() == 4) {
-            $namaPhoto = $this->request->getVar('photoLama'); // gunakan foto lama
+            $namaPhoto = $this->request->getVar('photoLama'); 
         } else {
             $namaPhoto = $filePhoto->getRandomName();
             $filePhoto->move('uploads', $namaPhoto);
@@ -91,7 +103,6 @@ class LayoutAdmin extends BaseController
         }
 
         session()->setFlashdata('success', 'Profile berhasil diupdate');
-        // Redirect ke method yang benar
         return redirect()->to('/admin/profile_adm');
     }
 
@@ -99,28 +110,21 @@ class LayoutAdmin extends BaseController
     {
         $bookingModel = new BookingModel();
         
-        // FIX: Perbaikan Logic Query
+        // PERBAIKAN: Hapus 'users.username' agar tidak error
         $newBookings = $bookingModel
-            // Ambil username juga untuk jaga-jaga kalau 'name' kosong
-            ->select('bookings.*, users.name, users.name') 
-            // Ubah ke LEFT JOIN: Biar kalau user dihapus, booking tetap muncul
+            ->select('bookings.*, users.name') 
             ->join('users', 'users.id = bookings.user_id', 'left') 
             ->groupStart()
-                // Pastikan menangkap 'pending' (sesuai data database kamu)
                 ->where('bookings.status', 'pending')
                 ->orWhere('bookings.status', null)
-                // Filter status lain jika perlu, tapi fokuskan ke pending dulu
             ->groupEnd()
             ->orderBy('bookings.id', 'DESC')
-            ->findAll(10); // Naikkan limit sedikit biar kelihatan
+            ->findAll(10);
 
-        // Mapping hasil agar view tidak error membaca 'client_name'
-        // Kita gabungkan logikanya: Cek name -> Cek username -> Default
         foreach ($newBookings as &$booking) {
+            // Logic disederhanakan: Jika ada nama gunakan nama, jika tidak gunakan fallback
             if (!empty($booking['name'])) {
                 $booking['client_name'] = $booking['name'];
-            } elseif (!empty($booking['username'])) {
-                $booking['client_name'] = $booking['username'];
             } else {
                 $booking['client_name'] = 'Pelanggan (Tanpa Nama)';
             }
@@ -128,7 +132,8 @@ class LayoutAdmin extends BaseController
 
         return view('admin/notif', [
             'recentBookings' => $newBookings,
-            'activeMenu' => 'notif'
+            'activeMenu' => 'notif',
+            'notif_count' => $this->getPendingCount()
         ]);
     }
 
@@ -136,13 +141,13 @@ class LayoutAdmin extends BaseController
     {
         $bookingModel = new BookingModel();
 
+        // PERBAIKAN: Ganti 'users.username' dengan 'users.name'
         $recentBookings = $bookingModel
-            ->select('bookings.*, users.username as client_name')
+            ->select('bookings.*, users.name as client_name')
             ->join('users', 'users.id = bookings.user_id')
             ->orderBy('bookings.created_at', 'DESC')
             ->findAll(5);
 
-        // Total clients & total service
         $totalClients = $bookingModel->countAllResults();
         $totalService = $bookingModel->distinct()->select('stylist')->countAllResults();
 
@@ -150,7 +155,9 @@ class LayoutAdmin extends BaseController
             'activeMenu' => 'dashboard',
             'recentBookings' => $recentBookings,
             'totalClients' => $totalClients,
-            'totalService' => $totalService
+            'totalService' => $totalService,
+            // --- PENTING: Kirim data notif ke view ---
+            'notif_count' => $this->getPendingCount()
         ];
 
         return view('admin/dashboard-admin', $data);
