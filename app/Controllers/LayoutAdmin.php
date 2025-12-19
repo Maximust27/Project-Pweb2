@@ -2,102 +2,319 @@
 
 namespace App\Controllers;
 
+use App\Controllers\BaseController;
 use App\Models\AdminModel;
 use App\Models\SkillModel;
 use App\Models\BookingModel;
-// Pastikan Model Service di-use jika ada, contoh: use App\Models\ServiceModel;
+use App\Models\ServiceModel;
 
 class LayoutAdmin extends BaseController
 {
-    // --- HELPER FUNCTIONS ---
+    protected $serviceModel;
+    protected $bookingModel;
+    protected $adminModel;
+    protected $skillModel;
+    protected $db;
 
-    // 1. Menghitung notifikasi (pending bookings)
+    public function __construct()
+    {
+        $this->serviceModel = new ServiceModel();
+        $this->bookingModel = new BookingModel();
+        $this->adminModel   = new AdminModel();
+        $this->skillModel   = new SkillModel();
+        $this->db           = \Config\Database::connect();
+    }
+
+    // --- HELPER ---
     private function getPendingCount()
     {
-        $bookingModel = new BookingModel();
-        return $bookingModel->groupStart()
+        return $this->bookingModel->groupStart()
             ->where('status', 'pending')
             ->orWhere('status', null)
             ->groupEnd()
             ->countAllResults();
     }
 
-    // 2. Mengambil data Admin yang sedang login
     private function getCurrentAdmin()
     {
-        $adminModel = new AdminModel();
-        // Ambil ID dari session, default ke 1 jika belum login (untuk dev)
-        $idAdmin = session()->get('id') ?? 1; 
-        return $adminModel->where('id', $idAdmin)->first();
+        $idAdmin = session()->get('id') ?? 1;
+        return $this->adminModel->where('id', $idAdmin)->first();
     }
-    
-    // --- CONTROLLER METHODS ---
 
+    // --- DASHBOARD ---
     public function dashboard_admin()
     {
-        $bookingModel = new BookingModel();
+        // 1. STATISTIK
+        $totalClients = $this->db->table('users')->where('role', 'user')->countAllResults();
+        try {
+            $totalServices = $this->db->table('services')->countAllResults();
+        } catch (\Exception $e) {
+            $totalServices = 0;
+        }
 
-        $recentBookings = $bookingModel
-            ->select('bookings.*, users.name as client_name')
-            ->join('users', 'users.id = bookings.user_id')
-            ->orderBy('bookings.created_at', 'DESC')
-            ->findAll(5);
+        // 2. LOGIKA BOOKING DENGAN FILTER & SEARCH
+        $filterStatus = $this->request->getVar('filter') ?? 'pending';
+        $keyword      = $this->request->getVar('search');
 
-        $totalClients = $bookingModel->countAllResults();
-        $totalService = $bookingModel->distinct()->select('stylist')->countAllResults();
+        $builder = $this->db->table('bookings');
+        
+        // FIX: Menghapus bookings.date sesuai kode asli
+        $builder->select('
+            bookings.id as booking_id,
+            bookings.time,
+            bookings.created_at,
+            bookings.status, 
+            bookings.total_price,
+            users.name,
+            users.email,
+            GROUP_CONCAT(booking_details.service_name SEPARATOR ", ") as service_list
+        ');
+        
+        $builder->join('users', 'users.id = bookings.user_id', 'left');
+        $builder->join('booking_details', 'booking_details.booking_id = bookings.id', 'left');
+
+        // Filter Status
+        if ($filterStatus == 'canceled') {
+            $builder->where('bookings.status', 'canceled');
+        } elseif ($filterStatus == 'completed') {
+            $builder->where('bookings.status', 'completed');
+        } else {
+            // Default: Pending
+            $builder->where('bookings.status', 'pending');
+        }
+
+        // Search
+        if ($keyword) {
+            $builder->groupStart();
+            $builder->like('users.name', $keyword);
+            $builder->orLike('users.email', $keyword);
+            $builder->orLike('booking_details.service_name', $keyword);
+            $builder->groupEnd();
+        }
+
+        $builder->groupBy('bookings.id');
+
+        // Sorting
+        if ($filterStatus == 'pending') {
+            $builder->orderBy('bookings.created_at', 'ASC');
+        } else {
+            $builder->orderBy('bookings.created_at', 'DESC');
+        }
+
+        // Ambil data
+        $bookings = $builder->get()->getResultArray();
 
         $data = [
+            'title'          => 'Dashboard',
             'activeMenu'     => 'dashboard',
-            'recentBookings' => $recentBookings,
-            'totalClients'   => $totalClients,
-            'totalService'   => $totalService,
+            'user_name'      => session()->get('name') ?? 'Admin',
+            'stats'          => [
+                'total_clients'  => $totalClients,
+                'total_services' => $totalServices
+            ],
+            'bookings'       => $bookings, 
+            'current_filter' => $filterStatus,
+            'keyword'        => $keyword,
             'notif_count'    => $this->getPendingCount(),
-            'admin'          => $this->getCurrentAdmin() // Kirim data admin ke View
+            'admin'          => $this->getCurrentAdmin()
         ];
 
-        return view('admin/dashboard-admin', $data);
+        return view('admin/dashboard', $data);
     }
 
+    // --- BOOKING ---
     public function booking_adm()
     {
-        $bookingModel = new BookingModel();
+        $filterStatus = $this->request->getVar('filter') ?? 'pending';
+        $keyword      = $this->request->getVar('search');
 
-        $allBookings = $bookingModel
-            ->select('bookings.*, users.name as client_name')
-            ->join('users', 'users.id = bookings.user_id', 'left')
-            ->orderBy('bookings.date', 'DESC')
-            ->findAll();
+        $builder = $this->db->table('bookings');
+        
+        // FIX: Menghapus bookings.date sesuai kode asli
+        $builder->select('
+            bookings.id as booking_id,
+            bookings.time,
+            bookings.created_at,
+            bookings.status, 
+            bookings.total_price,
+            users.name,
+            users.email,
+            GROUP_CONCAT(booking_details.service_name SEPARATOR ", ") as service_list
+        ');
+
+        $builder->join('users', 'users.id = bookings.user_id', 'left');
+        $builder->join('booking_details', 'booking_details.booking_id = bookings.id', 'left');
+
+        // Filter
+        if ($filterStatus == 'canceled') {
+            $builder->where('bookings.status', 'canceled');
+        } elseif ($filterStatus == 'completed') {
+            $builder->where('bookings.status', 'completed');
+        } else {
+            $builder->where('bookings.status', 'pending');
+        }
+
+        // Search
+        if ($keyword) {
+            $builder->groupStart();
+                $builder->like('users.name', $keyword);
+                $builder->orLike('users.email', $keyword);
+                $builder->orLike('booking_details.service_name', $keyword);
+            $builder->groupEnd();
+        }
+
+        $builder->groupBy('bookings.id');
+
+        // Sorting
+        if ($filterStatus == 'pending') {
+            $builder->orderBy('bookings.created_at', 'ASC');
+        } else {
+            $builder->orderBy('bookings.created_at', 'DESC');
+        }
+
+        $bookings = $builder->get()->getResultArray();
 
         $data = [
-            'activeMenu'  => 'bookings',
-            'bookings'    => $allBookings,
-            'notif_count' => $this->getPendingCount(),
-            'admin'       => $this->getCurrentAdmin() // Kirim data admin ke View
+            'activeMenu'     => 'bookings',
+            'title'          => 'Daftar Booking',
+            'bookings'       => $bookings,
+            'current_filter' => $filterStatus,
+            'keyword'        => $keyword,
+            'notif_count'    => $this->getPendingCount(),
+            'admin'          => $this->getCurrentAdmin()
         ];
 
         return view('admin/booking_adm', $data);
     }
 
-    public function service()
+    public function booking_update_status($id, $status)
     {
-        // $serviceModel = new ServiceModel();
-        // $services = $serviceModel->findAll();
+        if (in_array($status, ['completed', 'canceled'])) {
+            $this->bookingModel->update($id, ['status' => $status]);
+        }
+        return redirect()->back()->with('success', 'Status berhasil diupdate');
+    }
 
+    // --- SERVICE ---
+    public function service_index()
+    {
         $data = [
+            'page_title'  => 'Services',
             'activeMenu'  => 'services',
-            'services'    => [], // Ganti dengan data asli
+            'services'    => $this->serviceModel->orderBy('id', 'DESC')->findAll(),
             'notif_count' => $this->getPendingCount(),
-            'admin'       => $this->getCurrentAdmin() // Kirim data admin ke View
+            'admin'       => $this->getCurrentAdmin()
         ];
-
         return view('admin/service', $data);
     }
 
+    public function service_create()
+    {
+        $data = [
+            'page_title'  => 'Tambah Service',
+            'activeMenu'  => 'services',
+            'notif_count' => $this->getPendingCount(),
+            'admin'       => $this->getCurrentAdmin()
+        ];
+        return view('admin/tambah_service', $data);
+    }
+
+    public function service_store()
+    {
+        // Ubah validasi category jadi permit_empty agar tidak wajib
+        if (!$this->validate([
+            'service_name' => 'required',
+            'price'        => 'required|numeric',
+            'category'     => 'permit_empty', 
+            'image'        => 'uploaded[image]|max_size[image,2048]|is_image[image]|mime_in[image,image/jpg,image/jpeg,image/png]'
+        ])) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $imageFile = $this->request->getFile('image');
+        $imageName = $imageFile->getRandomName();
+        $imageFile->move('img', $imageName);
+
+        $this->serviceModel->save([
+            'service_name' => $this->request->getPost('service_name'),
+            'category'     => $this->request->getPost('category') ?? 'General', // Default jika kosong
+            'price'        => $this->request->getPost('price'),
+            'image'        => $imageName
+        ]);
+
+        return redirect()->to('/admin/service')->with('success', 'Service baru berhasil ditambahkan');
+    }
+
+    public function service_edit($id)
+    {
+        $service = $this->serviceModel->find($id);
+        if (!$service) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Service tidak ditemukan');
+        }
+
+        $data = [
+            'page_title'  => 'Edit Service',
+            'activeMenu'  => 'services',
+            'service'     => $service,
+            'notif_count' => $this->getPendingCount(),
+            'admin'       => $this->getCurrentAdmin()
+        ];
+        return view('admin/edit_service', $data);
+    }
+
+    public function service_update($id)
+    {
+        $service = $this->serviceModel->find($id);
+        if (!$service) return redirect()->to('/admin/service');
+
+        // Ubah validasi category jadi permit_empty
+        if (!$this->validate([
+            'service_name' => 'required',
+            'price'        => 'required|numeric',
+            'category'     => 'permit_empty', 
+            'image'        => 'permit_empty|max_size[image,2048]|is_image[image]|mime_in[image,image/jpg,image/jpeg,image/png]'
+        ])) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $imageFile = $this->request->getFile('image');
+        if ($imageFile->getError() == 4) {
+            $imageName = $service['image'];
+        } else {
+            $imageName = $imageFile->getRandomName();
+            $imageFile->move('img', $imageName);
+            if ($service['image'] && file_exists('img/' . $service['image'])) {
+                unlink('img/' . $service['image']);
+            }
+        }
+
+        $this->serviceModel->update($id, [
+            'service_name' => $this->request->getPost('service_name'),
+            'category'     => $this->request->getPost('category') ?? $service['category'], // Gunakan lama jika kosong
+            'price'        => $this->request->getPost('price'),
+            'image'        => $imageName
+        ]);
+
+        return redirect()->to('/admin/service')->with('success', 'Data berhasil diupdate');
+    }
+
+    public function service_delete($id)
+    {
+        $service = $this->serviceModel->find($id);
+        if ($service) {
+            if ($service['image'] && file_exists('img/' . $service['image'])) {
+                unlink('img/' . $service['image']);
+            }
+            $this->serviceModel->delete($id);
+            return redirect()->to('/admin/service')->with('success', 'Data berhasil dihapus');
+        }
+        return redirect()->to('/admin/service')->with('error', 'Data tidak ditemukan');
+    }
+
+    // --- NOTIF & PROFILE ---
     public function notif()
     {
-        $bookingModel = new BookingModel();
-        
-        $newBookings = $bookingModel
+        $newBookings = $this->bookingModel
             ->select('bookings.*, users.name') 
             ->join('users', 'users.id = bookings.user_id', 'left') 
             ->groupStart()
@@ -108,57 +325,38 @@ class LayoutAdmin extends BaseController
             ->findAll(10);
 
         foreach ($newBookings as &$booking) {
-            if (!empty($booking['name'])) {
-                $booking['client_name'] = $booking['name'];
-            } else {
-                $booking['client_name'] = 'Pelanggan (Tanpa Nama)';
-            }
+            $booking['client_name'] = !empty($booking['name']) ? $booking['name'] : 'Pelanggan (Tanpa Nama)';
         }
 
         return view('admin/notif', [
             'recentBookings' => $newBookings,
             'activeMenu'     => 'notif',
             'notif_count'    => $this->getPendingCount(),
-            'admin'          => $this->getCurrentAdmin() // Kirim data admin ke View
+            'admin'          => $this->getCurrentAdmin()
         ]);
     }
 
     public function profile_adm()
     {
-        $skillModel = new SkillModel();
-        
-        // Ambil data admin pakai helper biar konsisten
         $adminData = $this->getCurrentAdmin();
         $idAdmin   = $adminData['id'] ?? 1;
 
-        $data['admin']      = $adminData;
-        $data['skills']     = $skillModel->where('admin_id', $idAdmin)->findAll();
-        $data['activeMenu'] = 'profile';
-        $data['notif_count'] = $this->getPendingCount();
-
+        $data = [
+            'activeMenu'  => 'profile',
+            'admin'       => $adminData,
+            'skills'      => $this->skillModel->where('admin_id', $idAdmin)->findAll(),
+            'notif_count' => $this->getPendingCount()
+        ];
         return view('admin/profile_adm', $data);
     }
 
     public function updateProfile()
     {
-        $adminModel = new AdminModel();
-        $skillModel = new SkillModel();
-
         $idAdmin = session()->get('id') ?? 1;
 
         if (!$this->validate([
-            'name' => [
-                'rules' => 'required',
-                'errors' => ['required' => 'Nama harus diisi']
-            ],
-            'photo' => [
-                'rules' => 'max_size[photo,10000]|is_image[photo]|mime_in[photo,image/jpg,image/jpeg,image/png]',
-                'errors' => [
-                    'max_size' => 'Ukuran gambar terlalu besar',
-                    'is_image' => 'File wajib gambar',
-                    'mime_in'  => 'Tipe file gambar tidak sesuai'
-                ]
-            ]
+            'name' => 'required',
+            'photo' => 'max_size[photo,10000]|is_image[photo]|mime_in[photo,image/jpg,image/jpeg,image/png]'
         ])) {
             return redirect()->to('/admin/profile_adm')->withInput();
         }
@@ -171,7 +369,7 @@ class LayoutAdmin extends BaseController
             $filePhoto->move('uploads', $namaPhoto);
         }
 
-        $adminModel->save([
+        $this->adminModel->save([
             'id'          => $idAdmin,
             'name'        => $this->request->getVar('name'),
             'full_name'   => $this->request->getVar('full_name'),
@@ -181,30 +379,17 @@ class LayoutAdmin extends BaseController
         ]);
 
         $skillsInput = $this->request->getPost('skills') ?? [];
-        $skillModel->where('admin_id', $idAdmin)->delete();
+        $this->skillModel->where('admin_id', $idAdmin)->delete();
 
         foreach ($skillsInput as $skillName) {
             if (!empty(trim($skillName))) {
-                $skillModel->insert([
-                    'admin_id' => $idAdmin,
+                $this->skillModel->insert([
+                    'admin_id'   => $idAdmin,
                     'skill_name' => $skillName
                 ]);
             }
         }
 
-        session()->setFlashdata('success', 'Profile berhasil diupdate');
-        return redirect()->to('/admin/profile_adm');
-    }
-
-    public function sidebar()
-    {
-        return view('layout_admin/sidebar');
-    }
-
-    public function logout()
-    {
-        $session = session();
-        $session->destroy(); 
-        return redirect()->to('/');
+        return redirect()->to('/admin/profile_adm')->with('success', 'Profile berhasil diupdate');
     }
 }

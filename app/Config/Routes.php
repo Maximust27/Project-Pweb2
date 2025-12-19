@@ -19,7 +19,6 @@ $routes->get('logout', 'Login::logout');
 $routes->get('register', 'Register::index');
 $routes->post('register/process', 'Register::process');
 
-
 // 2. USER AREA (Role: User)
 $routes->group('user', ['filter' => 'role:user'], function($routes){
     $routes->get('/', 'User::dashboard');
@@ -31,33 +30,27 @@ $routes->group('user', ['filter' => 'role:user'], function($routes){
     $routes->get('booking/slots', 'BookingController::getSlots');
 });
 
-
 // 3. ADMIN AREA (Role: Admin)
 $routes->group('admin', ['filter' => 'role:admin'], function ($routes) {
     
-    //Dashboard & Umum
-    $routes->get('dashboard', 'AdminController::index');
-    $routes->get('dashboard-admin', 'LayoutAdmin::dashboard_admin');
+    // Dashboard (Menggunakan LayoutAdmin)
+    $routes->get('dashboard', 'LayoutAdmin::dashboard_admin'); 
+    $routes->get('dashboard-admin', 'LayoutAdmin::dashboard_admin'); // Alias jika diperlukan
+
+    // Profil & Notif
     $routes->get('profile_adm', 'LayoutAdmin::profile_adm');
-    
-
     $routes->post('updateProfile', 'LayoutAdmin::updateProfile'); 
-
-
     $routes->get('notif', 'LayoutAdmin::notif');
 
-    //Manajemen Booking
-    $routes->get('booking_adm', 'AdminBookingController::index_adm');
-    $routes->get('booking/update/(:num)/(:segment)', 'AdminBookingController::updateStatus/$1/$2');
+    // Manajemen Booking
+    $routes->get('booking_adm', 'LayoutAdmin::booking_adm');
+    $routes->get('booking/update/(:num)/(:segment)', 'LayoutAdmin::booking_update_status/$1/$2');
 
-    //Manajemen Service
-    $routes->get('service', 'ServiceController::index');     
-    
-    $routes->get('tambah_service', 'ServiceController::create');     
-    $routes->post('service/simpan', 'ServiceController::store');    
-    
-    $routes->get('edit_service/(:num)', 'ServiceController::edit/$1');  
-    $routes->post('service/update/(:num)', 'ServiceController::update/$1');
-    
-    $routes->get('service/hapus/(:num)', 'ServiceController::delete/$1');    
+    // Manajemen Service
+    $routes->get('service', 'LayoutAdmin::service_index');     
+    $routes->get('tambah_service', 'LayoutAdmin::service_create');     
+    $routes->post('service/simpan', 'LayoutAdmin::service_store');    
+    $routes->get('edit_service/(:num)', 'LayoutAdmin::service_edit/$1');  
+    $routes->post('service/update/(:num)', 'LayoutAdmin::service_update/$1');
+    $routes->get('service/hapus/(:num)', 'LayoutAdmin::service_delete/$1');    
 });
