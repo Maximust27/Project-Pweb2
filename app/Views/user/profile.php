@@ -204,12 +204,21 @@
                 </div>
             </div>
         </div>
-        <div>
-            <div class="bg-[#1A1A1A] rounded-md">
-                <a href="<?= base_url('logout') ?>" class="sidebar-btn flex items-center gap-3 px-4 py-2 rounded-md w-full">
-                    <span>↩️</span> Logout
-                </a>
-            </div>
+        <!-- Logout Button -->
+        <div class="flex justify-center pt-10 pb-6">
+            <a href="<?= base_url('logout') ?>" onclick="return confirm('Apakah Anda yakin ingin keluar?');" 
+               class="group relative inline-flex items-center gap-3 px-8 py-3 overflow-hidden rounded-full bg-transparent border-2 border-[#B8860B] text-[#B8860B] font-semibold transition-all duration-300 hover:bg-[#B8860B] hover:text-white hover:shadow-[0_0_20px_rgba(184,134,11,0.5)]">
+                
+                <!-- Icon dengan animasi rotasi saat hover -->
+                <span class="text-xl transition-transform duration-300 group-hover:-translate-x-1">
+                    <i class="fas fa-sign-out-alt"></i>
+                </span>
+                
+                <span class="tracking-wide">Logout</span>
+                
+                <!-- Efek kilau (shine) saat hover -->
+                <div class="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent z-10"></div>
+            </a>
         </div>
     </div>
   </div>
